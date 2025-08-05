@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive E2E Security & Enterprise Architecture Assessment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .sabsa-layer {
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+        }
+        .sabsa-layer:hover, .sabsa-layer.active {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border-color: #6366f1;
+        }
+        .sabsa-layer.active {
+             border-color: #4f46e5;
+             background-color: #eef2ff;
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        #reportModal {
+            transition: opacity 0.3s ease;
+        }
+        .report-tab {
+            transition: all 0.2s ease-in-out;
+        }
+        .report-tab.active {
+            border-color: #4f46e5;
+            color: #4f46e5;
+            background-color: #eef2ff;
+        }
+        .report-content {
+            display: none;
+        }
+        .report-content.active {
+            display: block;
+        }
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #reportOutput, #reportOutput * {
+                visibility: visible;
+            }
+            #reportOutput {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+            }
+            .no-print {
+                display: none;
+            }
+            .print-section {
+                display: block !important;
+            }
+        }
+    </style>
+    <!-- Chosen Palette: Professional Neutrals with Indigo Accent -->
+    <!-- Application Structure Plan: The SPA is designed around a central, interactive SABSA framework diagram. This visual, non-linear navigation allows users to explore the questionnaire thematically by clicking on a specific architectural layer (e.g., Contextual, Logical). This is more intuitive than a long scroll, as it mirrors the conceptual structure of SABSA itself. Clicking a layer dynamically reveals the corresponding questions and expert commentary in a content pane below. This structure enhances usability by breaking down complex information into manageable, context-rich sections, facilitating a deeper understanding of how business drivers cascade down to technical implementation. -->
+    <!-- Visualization & Content Choices: Report Info: The core content is a structured questionnaire aligned with SABSA layers. Goal: To make this dense, text-based information easily navigable and understandable. Viz/Presentation Method: An interactive, non-clickable diagram of the SABSA layers built with HTML/Tailwind serves as the primary navigation. Questions are presented in clean, expandable cards. Interaction: Clicking a layer on the diagram filters the content, displaying only the relevant questions and architect's notes. This avoids overwhelming the user. Justification: This interactive filtering is superior to a static document because it allows users to self-direct their exploration and focus on the architectural layer most relevant to them, reinforcing the framework's logic. Library/Method: Vanilla JavaScript for interaction, HTML/Tailwind for structure and styling. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto px-4 py-8 md:py-12">
+
+        <header class="text-center mb-10">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900">End-to-End Enterprise Architecture Assessment</h1>
+            <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">A comprehensive assessment tool aligned with SABSA for security and TOGAF for enterprise architecture.</p>
+        </header>
+
+        <main>
+            <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg mb-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">Assessment Framework Explorer</h2>
+                <p class="text-gray-600 mb-6">Click on a section to explore and answer the questions. This model covers the full lifecycle from business strategy to operational maturity and commercial agreement.</p>
+                <div id="sabsa-nav" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                    <!-- Navigation sections will be injected here by JS -->
+                </div>
+            </div>
+            
+            <div id="content-display" class="bg-white p-6 md:p-8 rounded-2xl shadow-lg min-h-[30rem]">
+                <!-- Content Sections will be injected here by JS -->
+            </div>
+
+            <div class="mt-8 text-center">
+                <button id="generateReportBtn" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:bg-indigo-700 transition-transform hover:scale-105">
+                    Generate Assessment Report
+                </button>
+            </div>
+        </main>
+
+        <footer class="text-center mt-12 text-gray-500">
+            <p>&copy; 2025 Enterprise Architecture Assessment. All information presented is based on the provided source report.</p>
+        </footer>
+    </div>
+
+    <!-- Report Modal -->
+    <div id="reportModal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-white rounded-lg shadow-2xl w-full max-w-5xl max-h-[90vh] flex flex-col">
+            <div class="p-4 border-b border-gray-200 flex justify-between items-center no-print">
+                <div class="flex border border-gray-200 rounded-lg p-1">
+                    <button data-tab="infographic" class="report-tab font-semibold py-2 px-4 rounded-md text-sm">Infographic Summary</button>
+                    <button data-tab="details" class="report-tab font-semibold py-2 px-4 rounded-md text-sm">Detailed Report</button>
+                </div>
+                <div>
+                    <button id="printReportBtn" class="bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-lg mr-2 hover:bg-gray-300 transition-colors">Print</button>
+                    <button id="closeReportBtn" class="bg-red-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-red-700 transition-colors">Close</button>
+                </div>
+            </div>
+            <div id="reportOutput" class="overflow-y-auto">
+                 <!-- Infographic Report -->
+                <div id="infographic-content" class="report-content p-8">
+                    <!-- This will be populated by JS -->
+                </div>
+                <!-- Detailed Text Report -->
+                <div id="details-content" class="report-content p-8">
+                     <!-- This will be populated by JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        const assessmentData = [
+            {
+                id: 'contextual',
+                title: 'Business Context & Drivers',
+                subtitle: 'The "Why"',
+                layer: 'SABSA: Contextual Layer',
+                description: "This section is designed to understand the organization's strategic objectives, business drivers, and the critical assets that require protection.",
+                questions: [
+                    { q: "What are your organization's primary business objectives and strategic goals for the next 1-3 years?", a: "This defines the mission security must support. This aligns with COBIT's 'Goals Cascade' principle, ensuring security objectives are derived from enterprise goals.", type: 'open', response: '' },
+                    { q: "What is your organization's primary industry?", a: "Understanding the industry provides context on common business models, risks, and regulatory landscapes.", type: 'multiple-choice', options: ['Financial Services', 'Healthcare', 'Retail / E-commerce', 'Manufacturing', 'Technology', 'Government / Public Sector', 'Other'], response: '' },
+                    { q: "What is your organization's risk appetite and tolerance for security-related incidents?", a: "This directly influences security investment levels.", type: 'multiple-choice', options: ['Very Low (Risk Averse)', 'Low', 'Moderate', 'High', 'Very High (Risk Seeking)'], response: '' },
+                ]
+            },
+            {
+                id: 'conceptual',
+                title: 'Security Strategy & Concepts',
+                subtitle: 'The "What"',
+                layer: 'SABSA: Conceptual Layer',
+                description: "This section focuses on the organization's high-level security strategy, policies, and the conceptual design of its security architecture.",
+                questions: [
+                    { q: "What is the primary driver for your security strategy?", a: "This reveals the core motivation behind the security program.", type: 'multiple-choice', options: ['Compliance-Driven', 'Risk-Driven', 'Threat-Driven', 'Business-Enablement-Driven'], response: '' },
+                    { q: "Does your organization maintain a Statement of Applicability (SoA) or a similar document to justify the inclusion/exclusion of security controls?", a: "This is a key concept from ISO 27001 for demonstrating a systematic approach to control selection.", type: 'multiple-choice', options: ['Yes, it is formally maintained', 'An informal equivalent exists', 'No such document exists', 'I don\'t know'], response: '' },
+                    { q: "How does your organization ensure that security requirements are considered early in the project lifecycle?", a: "A critical test of whether security is 'built-in' or 'bolted-on.'", type: 'multiple-choice', options: ['Security is involved from the concept phase', 'Security is engaged during design/development', 'Security is engaged for testing before deployment', 'Security is an afterthought, post-deployment'], response: '' },
+                ]
+            },
+            {
+                id: 'logical',
+                title: 'Security Services & Design',
+                subtitle: 'The "How"',
+                layer: 'SABSA: Logical Layer',
+                description: "This section delves into the logical design of your security services and how they address the conceptual security requirements.",
+                questions: [
+                    { q: "What is the primary logical model for Identity and Access Management (IAM)?", a: "Describes the fundamental approach to managing digital identities.", type: 'multiple-choice', options: ['Centralized (e.g., single corporate directory)', 'Federated (e.g., using partners\' identities)', 'Decentralized / Self-Sovereign', 'A hybrid approach'], response: '' },
+                    { q: "What is your approach to segmentation and isolation within your network and application environments?", a: "Segmentation limits the blast radius of a breach.", type: 'multiple-choice', options: ['No formal segmentation', 'Basic network segmentation (e.g., DMZ)', 'Micro-segmentation based on application/workload', 'Zero-trust architecture principles are applied'], response: '' },
+                ]
+            },
+            {
+                id: 'physical',
+                title: 'Technology & Implementation',
+                subtitle: 'The "With What"',
+                layer: 'SABSA: Physical Layers',
+                description: "This section focuses on the specific security technologies and components implemented within your organization.",
+                questions: [
+                    { q: "What is the primary hosting environment for your critical business applications?", a: "Understanding the physical/virtual location of assets is key to applying correct protections.", type: 'multiple-choice', options: ['Primarily On-Premise Data Centers', 'Primarily a single Public Cloud (e.g., AWS, Azure, GCP)', 'Hybrid Cloud (Mix of On-Premise and Public Cloud)', 'Multi-Cloud (Using multiple Public Cloud providers)'], response: '' },
+                    { q: "How are your security technologies integrated to provide a cohesive security posture?", a: "A collection of unintegrated tools is not an architecture.", type: 'multiple-choice', options: ['Tools operate in silos with no integration', 'Some point-to-point integrations exist', 'A central SIEM/SOAR platform provides significant integration', 'Highly automated and integrated ecosystem'], response: '' },
+                ]
+            },
+            {
+                id: 'service',
+                title: 'Security Operations & Governance',
+                subtitle: 'The "Ongoing How"',
+                layer: 'SABSA: Service Management',
+                description: "This section explores how your security architecture is operated, managed, and governed on an ongoing basis.",
+                questions: [
+                    { q: "What is the primary operational model for your Security Operations Center (SOC)?", a: "Assesses the core of detection and response capabilities.", type: 'multiple-choice', options: ['No SOC / Ad-hoc monitoring', 'In-house SOC, business hours only', 'In-house SOC, 24/7', 'Co-managed with an MSSP', 'Fully outsourced to an MSSP'], response: '' },
+                    { q: "How frequently are security policies and procedures formally reviewed and updated?", a: "Tests for a living, breathing governance framework.", type: 'multiple-choice', options: ['Annually or more frequently', 'Every 2-3 years', 'Rarely / on an ad-hoc basis', 'Never'], response: '' },
+                ]
+            },
+            {
+                id: 'togaf',
+                title: 'TOGAF Enterprise Architecture',
+                subtitle: 'The "Structure"',
+                layer: 'TOGAF: ADM & Governance',
+                description: "This section assesses the organization's maturity and adherence to The Open Group Architecture Framework (TOGAF) for enterprise architecture.",
+                questions: [
+                    { q: "Does the organization have a defined set of enterprise architecture principles (e.g., business, data, application, technology principles)?", a: "Architecture principles are the foundation for EA governance and decision-making.", type: 'multiple-choice', options: ['Yes, formally documented and governed', 'Yes, but they are informal or outdated', 'Only for specific domains (e.g., technology)', 'No'], response: '' },
+                    { q: "Does the organization have a formal Architecture Board (or equivalent governance body)?", a: "An Architecture Board is a key component of TOGAF for governing the architecture.", type: 'multiple-choice', options: ['Yes, with a formal charter and regular meetings', 'Yes, but it operates informally', 'No, governance is ad-hoc', 'I don\'t know'], response: '' },
+                    { q: "How would you rate the documentation and maintenance of your core architecture artifacts?", a: "Assesses the completeness of the Architecture Repository's content.", type: 'open', response: '', sub_questions: [
+                        { q: "Business Architecture (Capabilities, Processes)", type: 'rating', options: ['1','2','3','4','5'], response: '' },
+                        { q: "Data Architecture (Data Models, Flows)", type: 'rating', options: ['1','2','3','4','5'], response: '' },
+                        { q: "Application Architecture (Portfolio, Interfaces)", type: 'rating', options: ['1','2','3','4','5'], response: '' },
+                        { q: "Technology Architecture (TRM, Infrastructure)", type: 'rating', options: ['1','2','3','4','5'], response: '' }
+                    ]},
+                    { q: "How are architectural decisions communicated to and enforced on implementation projects?", a: "This is a critical test of the architecture's real-world impact and compliance.", type: 'multiple-choice', options: ['Formal architecture compliance reviews are mandatory', 'Architecture contracts are used', 'Informal guidance and consultation is provided', 'There is little to no enforcement'], response: '' },
+                    { q: "How are business stakeholders (outside of IT) involved in the architecture development process?", a: "Stakeholder management is a critical success factor for ensuring the architecture meets business needs.", type: 'multiple-choice', options: ['Actively involved in workshops and governance', 'Consulted for input and requirements', 'Primarily just informed of decisions', 'Little to no involvement'], response: '' },
+                    { q: "Which phase of the TOGAF ADM best describes the current focus of your enterprise architecture efforts?", a: "Helps to understand the current state and immediate priorities of the EA team.", type: 'multiple-choice', options: ['A: Architecture Vision', 'B: Business Architecture', 'C: Information Systems Architecture', 'D: Technology Architecture', 'E/F: Opportunities, Solutions & Migration Planning', 'G: Implementation Governance', 'H: Architecture Change Management'], response: '' },
+                ]
+            },
+            {
+                id: 'capability',
+                title: 'Capability & Maturity',
+                subtitle: 'The "How Well"',
+                layer: 'Framework-Aligned Assessment',
+                description: "Assess the maturity of your key capabilities. Rate each on a scale of 1 (Ad-Hoc/Initial) to 5 (Optimizing). This assessment is aligned with domains from NIST, ISO 27001, and COBIT.",
+                questions: [
+                    { q: "Security Governance & Management", a: "Mature governance (COBIT) includes a defined strategy and executive reporting. Mature management involves running a formal Information Security Management System (ISMS) as per ISO 27001.", type: 'rating', options: ['1','2','3','4','5'], response: '' },
+                    { q: "Risk Management (NIST Identify)", a: "A defined, consistently used risk register and formal reporting cadence are hallmarks of a 'Managed' (Level 3) or higher maturity level.", type: 'rating', options: ['1','2','3','4','5'], response: '' },
+                    { q: "Asset Management (NIST Identify)", a: "A mature program maintains a comprehensive, up-to-date inventory, which is fundamental to all other security controls.", type: 'rating', options: ['1','2','3','4','5'], response: '' },
+                    { q: "Identity & Access Management (NIST Protect)", a: "Mature programs feature automated provisioning, regular access reviews, and privileged access management (PAM).", type: 'rating', options: ['1','2','3','4','5'], response: '' },
+                    { q: "Data Security (NIST Protect)", a: "Includes data classification, encryption, and data loss prevention (DLP) that are consistently applied based on data sensitivity.", type: 'rating', options: ['1','2','3','4','5'], response: '' },
+                    { q: "Protective Technology (NIST Protect)", a: "Maturity involves integrated, layered defenses that are regularly updated and tested for effectiveness.", type: 'rating', options: ['1','2','3','4','5'], response: '' },
+                    { q: "Detection Processes (NIST Detect)", a: "A mature program uses automated, correlated monitoring across diverse log sources with minimal false positives.", type: 'rating', options: ['1','2','3','4','5'], response: '' },
+                    { q: "Incident Response (NIST Respond)", a: "A dedicated team and regular, complex drills that lead to process improvement are indicative of Level 4/5.", type: 'rating', options: ['1','2','3','4','5'], response: '' },
+                    { q: "Recovery & Resilience Planning (NIST Recover)", a: "Maturity is shown by having comprehensive, tested recovery plans that are integrated with business continuity planning.", type: 'rating', options: ['1','2','3','4','5'], response: '' },
+                    { q: "Human Resource Security (ISO 27001)", a: "Includes background checks, defined roles and responsibilities, and formal termination processes.", type: 'rating', options: ['1','2','3','4','5'], response: '' },
+                    { q: "Physical & Environmental Security (ISO 27001)", a: "Includes access controls to secure areas, protection against environmental threats, and secure equipment disposal.", type: 'rating', options: ['1','2','3','4','5'], response: '' },
+                    { q: "Third-Party Risk Management", a: "A mature program has a tiered, risk-based approach with contractual requirements and continuous monitoring.", type: 'rating', options: ['1','2','3','4','5'], response: '' },
+                ]
+            },
+            {
+                id: 'engagement',
+                title: 'Engagement & Commercials',
+                subtitle: 'The "Agreement"',
+                layer: 'Scoping & Agreement',
+                description: "This final section clarifies the practical aspects of the engagement to ensure mutual understanding and a successful partnership.",
+                questions: [
+                    { q: "What is the primary driver for this architecture engagement?", a: "Understanding the primary motivation helps tailor the engagement's focus.", type: 'multiple-choice', options: ['Regulatory Audit / Compliance', 'Digital Transformation Initiative', 'Post-Incident Response', 'Board-Level Directive', 'Proactive Improvement'], response: '' },
+                    { q: "How would you rate the maturity of organizational enablers (e.g., culture, skills, processes) to support a significant architectural change?", a: "This question, aligned with COBIT's concept of enablers, helps gauge the organization's readiness and capacity for change.", type: 'multiple-choice', options: ['Low - Significant resistance to change expected', 'Moderate - Some key enablers are in place', 'High - The organization is agile and ready for change'], response: '' },
+                    { q: "What is the preferred commercial model for this engagement?", a: "This opens the conversation about the financial structure of the agreement.", type: 'multiple-choice', options: ['Fixed Price', 'Time & Materials', 'Retainer-based'], response: '' },
+                ]
+            }
+        ];
+
+        let maturityChart = null;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const navContainer = document.getElementById('sabsa-nav');
+            const contentContainer = document.getElementById('content-display');
+
+            function renderQuestion(item, sectionId, index) {
+                let inputHtml = '';
+                const questionId = `q-${sectionId}-${index}`;
+                
+                if (item.sub_questions) {
+                    inputHtml += `<div class="mt-4 space-y-4 pl-4 border-l-2 border-gray-200">`;
+                    item.sub_questions.forEach((sub, sub_index) => {
+                        const subQuestionId = `${questionId}-${sub_index}`;
+                        inputHtml += `<div><p class="font-medium text-gray-700">${sub.q}</p>`;
+                        inputHtml += `<div class="mt-2 flex items-center justify-between px-2 max-w-sm">
+                            <span class="text-sm text-gray-500">Ad-Hoc</span>
+                            <div class="flex items-center space-x-4">${sub.options.map(opt => `
+                                <label class="flex flex-col items-center cursor-pointer">
+                                    <input type="radio" name="${subQuestionId}" value="${opt}" data-section-id="${sectionId}" data-question-index="${index}" data-sub-question-index="${sub_index}" class="h-5 w-5 text-indigo-600 border-gray-300 focus:ring-indigo-500" ${sub.response === opt ? 'checked' : ''}>
+                                    <span class="mt-1 text-xs font-bold">${opt}</span>
+                                </label>
+                            `).join('')}</div>
+                            <span class="text-sm text-gray-500">Optimized</span>
+                         </div></div>`;
+                    });
+                    inputHtml += `</div>`;
+                } else {
+                    switch (item.type) {
+                        case 'open':
+                            inputHtml = `<textarea id="${questionId}" data-section-id="${sectionId}" data-question-index="${index}" class="mt-2 w-full p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" rows="4" placeholder="Your detailed answer...">${item.response}</textarea>`;
+                            break;
+                        case 'multiple-choice':
+                            inputHtml = `<div class="mt-2 space-y-2">${item.options.map((opt, optIndex) => `
+                                <label class="flex items-center p-2 rounded-md hover:bg-gray-100 cursor-pointer">
+                                    <input type="radio" name="${questionId}" value="${opt}" data-section-id="${sectionId}" data-question-index="${index}" class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500" ${item.response === opt ? 'checked' : ''}>
+                                    <span class="ml-3 text-gray-700">${opt}</span>
+                                </label>
+                            `).join('')}</div>`;
+                            break;
+                        case 'rating':
+                             inputHtml = `<div class="mt-3 flex items-center justify-between px-2 max-w-sm">
+                                <span class="text-sm text-gray-500">Ad-Hoc</span>
+                                <div class="flex items-center space-x-4">${item.options.map(opt => `
+                                    <label class="flex flex-col items-center cursor-pointer">
+                                        <input type="radio" name="${questionId}" value="${opt}" data-section-id="${sectionId}" data-question-index="${index}" class="h-5 w-5 text-indigo-600 border-gray-300 focus:ring-indigo-500" ${item.response === opt ? 'checked' : ''}>
+                                        <span class="mt-1 text-xs font-bold">${opt}</span>
+                                    </label>
+                                `).join('')}</div>
+                                <span class="text-sm text-gray-500">Optimized</span>
+                             </div>`;
+                            break;
+                    }
+                }
+
+                return `
+                    <div class="question-card border-b border-gray-200 py-5">
+                        <p class="font-semibold text-gray-800 mb-1">${index + 1}. ${item.q.split('(')[0]}</p>
+                        <div class="pl-4 border-l-2 border-indigo-100">
+                            <p class="text-sm text-gray-500 italic mb-2">${item.a}</p>
+                            ${inputHtml}
+                        </div>
+                    </div>
+                `;
+            }
+
+            assessmentData.forEach(section => {
+                const navItem = document.createElement('div');
+                navItem.className = 'sabsa-layer bg-white border-2 border-gray-200 p-4 rounded-lg shadow-sm';
+                navItem.dataset.id = section.id;
+                navItem.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-lg font-bold text-indigo-700">${section.title}</h3>
+                        <span class="text-xs font-semibold text-gray-500">${section.subtitle}</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-1">${section.layer}</p>
+                `;
+                navContainer.appendChild(navItem);
+
+                const contentSection = document.createElement('div');
+                contentSection.id = `content-${section.id}`;
+                contentSection.className = 'content-section';
+                
+                let questionsHtml = section.questions.map((item, index) => renderQuestion(item, section.id, index)).join('');
+
+                contentSection.innerHTML = `
+                    <h2 class="text-3xl font-bold text-gray-900 mb-3">${section.title}</h2>
+                    <p class="text-gray-600 mb-8 max-w-4xl">${section.description}</p>
+                    <div class="space-y-4">
+                        ${questionsHtml}
+                    </div>
+                `;
+                contentContainer.appendChild(contentSection);
+            });
+
+            contentContainer.addEventListener('input', (e) => {
+                if (e.target.tagName === 'TEXTAREA') {
+                    const { sectionId, questionIndex } = e.target.dataset;
+                    assessmentData.find(s => s.id === sectionId).questions[questionIndex].response = e.target.value;
+                }
+            });
+
+            contentContainer.addEventListener('change', (e) => {
+                if (e.target.type === 'radio') {
+                    const { sectionId, questionIndex, subQuestionIndex } = e.target.dataset;
+                    if (subQuestionIndex !== undefined) {
+                        assessmentData.find(s => s.id === sectionId).questions[questionIndex].sub_questions[subQuestionIndex].response = e.target.value;
+                    } else {
+                        assessmentData.find(s => s.id === sectionId).questions[questionIndex].response = e.target.value;
+                    }
+                }
+            });
+
+            const navItems = document.querySelectorAll('.sabsa-layer');
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const targetId = item.dataset.id;
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                    item.classList.add('active');
+                    document.querySelectorAll('.content-section').forEach(content => content.classList.remove('active'));
+                    document.getElementById(`content-${targetId}`).classList.add('active');
+                });
+            });
+
+            if (navItems.length > 0) {
+                navItems[0].click();
+            }
+
+            // Report Generation Logic
+            const reportModal = document.getElementById('reportModal');
+            const generateReportBtn = document.getElementById('generateReportBtn');
+            const closeReportBtn = document.getElementById('closeReportBtn');
+            const printReportBtn = document.getElementById('printReportBtn');
+            const infographicContent = document.getElementById('infographic-content');
+            const detailsContent = document.getElementById('details-content');
+
+            generateReportBtn.addEventListener('click', () => {
+                // Generate Detailed Report
+                let detailsHtml = `<h1 class="text-3xl font-bold text-center mb-8 print-section">Enterprise Architecture Assessment Report</h1>`;
+                assessmentData.forEach(section => {
+                    detailsHtml += `<div class="mb-8 break-after-page">
+                                     <h2 class="text-2xl font-bold border-b-2 border-indigo-500 pb-2 mb-4">${section.title}</h2>`;
+                    section.questions.forEach((q, i) => {
+                        let response = q.response || 'No response provided.';
+                        if(q.sub_questions) {
+                            response = q.sub_questions.map(sq => `<p class="font-medium text-sm mt-2">${sq.q}: <span class="font-normal">${sq.response || 'N/A'}</span></p>`).join('');
+                        }
+                        detailsHtml += `<div class="mb-4">
+                                         <p class="font-semibold">${i + 1}. ${q.q}</p>
+                                         <div class="pl-4 text-gray-700 bg-gray-50 p-2 rounded-md mt-1">${response}</div>
+                                       </div>`;
+                    });
+                    detailsHtml += `</div>`;
+                });
+                detailsContent.innerHTML = detailsHtml;
+
+                // Generate Infographic
+                const capabilitySection = assessmentData.find(s => s.id === 'capability');
+                const maturityScores = capabilitySection.questions.map(q => q.response ? parseInt(q.response, 10) : 0);
+                const maturityLabels = capabilitySection.questions.map(q => q.q.split('(')[0].trim());
+                const averageScore = maturityScores.filter(s => s > 0).length > 0 ? (maturityScores.reduce((a, b) => a + b, 0) / maturityScores.filter(s => s > 0).length) : 0;
+                
+                let maturityLevel = 'Initial';
+                let maturityColor = 'text-red-600';
+                if (averageScore >= 4.5) { maturityLevel = 'Optimizing'; maturityColor = 'text-green-600';}
+                else if (averageScore >= 3.5) { maturityLevel = 'Quantitatively Managed'; maturityColor = 'text-blue-600'; }
+                else if (averageScore >= 2.5) { maturityLevel = 'Managed'; maturityColor = 'text-yellow-600'; }
+                else if (averageScore >= 1.5) { maturityLevel = 'Defined'; maturityColor = 'text-orange-600'; }
+
+                const togafGovernance = assessmentData.find(s => s.id === 'togaf').questions[1].response || 'N/A';
+                const primaryDriver = assessmentData.find(s => s.id === 'engagement').questions[0].response || 'N/A';
+
+                infographicContent.innerHTML = `
+                    <div class="bg-slate-900 text-white p-8 rounded-lg">
+                        <h1 class="text-3xl font-bold text-center mb-2">Architecture Assessment Summary</h1>
+                        <p class="text-center text-slate-400 mb-8">A visual overview of the organization's security capabilities and EA posture.</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                            <div class="bg-slate-800 p-4 rounded-lg text-center">
+                                <p class="text-sm text-slate-400">Overall Security Maturity</p>
+                                <p class="text-4xl font-bold ${maturityColor}">${averageScore.toFixed(2)}</p>
+                                <p class="text-sm font-semibold ${maturityColor}">${maturityLevel}</p>
+                            </div>
+                            <div class="bg-slate-800 p-4 rounded-lg text-center">
+                                <p class="text-sm text-slate-400">TOGAF Governance Board</p>
+                                <p class="text-2xl font-bold text-indigo-400 mt-2 truncate" title="${togafGovernance}">${togafGovernance}</p>
+                            </div>
+                            <div class="bg-slate-800 p-4 rounded-lg text-center">
+                                <p class="text-sm text-slate-400">Primary Engagement Driver</p>
+                                <p class="text-2xl font-bold text-indigo-400 mt-2 truncate" title="${primaryDriver}">${primaryDriver}</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-800 p-6 rounded-lg">
+                             <h2 class="text-xl font-bold text-center text-slate-300 mb-4">Capability Maturity Radar</h2>
+                             <div class="chart-container" style="position: relative; height:60vh; width:100%">
+                                <canvas id="maturityChart"></canvas>
+                             </div>
+                        </div>
+                    </div>
+                `;
+                
+                if(maturityChart) {
+                    maturityChart.destroy();
+                }
+                const ctx = document.getElementById('maturityChart').getContext('2d');
+                maturityChart = new Chart(ctx, {
+                    type: 'radar',
+                    data: {
+                        labels: maturityLabels,
+                        datasets: [{
+                            label: 'Maturity Score',
+                            data: maturityScores,
+                            backgroundColor: 'rgba(79, 70, 229, 0.2)',
+                            borderColor: 'rgba(99, 102, 241, 1)',
+                            pointBackgroundColor: 'rgba(99, 102, 241, 1)',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: 'rgba(99, 102, 241, 1)'
+                        }]
+                    },
+                    options: {
+                        maintainAspectRatio: false,
+                        scales: {
+                            r: {
+                                beginAtZero: true,
+                                max: 5,
+                                stepSize: 1,
+                                angleLines: { color: 'rgba(255, 255, 255, 0.2)' },
+                                grid: { color: 'rgba(255, 255, 255, 0.2)' },
+                                pointLabels: { 
+                                    color: '#cbd5e1',
+                                    font: {
+                                        size: 11
+                                    }
+                                },
+                                ticks: {
+                                    color: '#fff',
+                                    backdropColor: 'rgba(0, 0, 0, 0.5)',
+                                    font: {
+                                        size: 12
+                                    }
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        }
+                    }
+                });
+
+
+                reportModal.classList.remove('hidden');
+                document.querySelector('.report-tab[data-tab="infographic"]').click();
+            });
+
+            closeReportBtn.addEventListener('click', () => {
+                reportModal.classList.add('hidden');
+            });
+            
+            printReportBtn.addEventListener('click', () => {
+                window.print();
+            });
+
+            // Tab functionality for report modal
+            const reportTabs = document.querySelectorAll('.report-tab');
+            reportTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const tabName = tab.dataset.tab;
+                    reportTabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+
+                    document.querySelectorAll('.report-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    document.getElementById(`${tabName}-content`).classList.add('active');
+                });
+            });
+
+        });
+    </script>
+</body>
+</html>
