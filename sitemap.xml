@@ -26,4 +26,10 @@
   <url>
     <loc>https://example.com/#terms</loc>
   </url>
+  <url>
+    <loc>https://example.com/use-cases/cloud-security-architecture.html</loc>
+  </url>
+  <url>
+    <loc>https://example.com/subscribe.html</loc>
+  </url>
 </urlset>

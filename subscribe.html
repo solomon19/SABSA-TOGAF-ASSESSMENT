@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subscribe • SolTech</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>body{font-family:'Inter',sans-serif}</style>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-sky-50 via-white to-white text-gray-900">
+  <main class="max-w-3xl mx-auto px-6 py-16">
+    <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight">Subscribe for Full Access</h1>
+    <p class="mt-3 text-gray-600">Unlock detailed enterprise security architecture use cases, reference controls, downloadable diagrams, and estimators.</p>
+
+    <div class="mt-8 grid md:grid-cols-2 gap-6">
+      <div class="bg-white border rounded-2xl p-6 shadow-sm">
+        <h2 class="text-xl font-bold">Monthly</h2>
+        <p class="text-gray-600">Cancel anytime</p>
+        <p class="mt-4 text-3xl font-extrabold">$29</p>
+        <button class="subscribeBtn mt-4 w-full rounded-lg bg-sky-600 px-4 py-2 font-semibold text-white hover:bg-sky-700" data-plan="monthly">Subscribe Monthly</button>
+      </div>
+      <div class="bg-white border rounded-2xl p-6 shadow-sm">
+        <h2 class="text-xl font-bold">Annual</h2>
+        <p class="text-gray-600">2 months free</p>
+        <p class="mt-4 text-3xl font-extrabold">$290</p>
+        <button class="subscribeBtn mt-4 w-full rounded-lg bg-sky-600 px-4 py-2 font-semibold text-white hover:bg-sky-700" data-plan="annual">Subscribe Annually</button>
+      </div>
+    </div>
+
+    <div class="mt-8 bg-white border rounded-2xl p-6 shadow-sm">
+      <h3 class="text-lg font-bold">Payment Methods</h3>
+      <p class="mt-2 text-gray-600">In production, integrate providers like Stripe or PayPal.</p>
+      <div class="mt-4 flex items-center gap-3">
+        <button class="subscribeBtn inline-flex items-center rounded-lg border border-gray-300 bg-white px-4 py-2 font-semibold text-gray-900 hover:bg-gray-50" data-plan="demo">Pay with Card (Demo)</button>
+        <button class="subscribeBtn inline-flex items-center rounded-lg border border-gray-300 bg-white px-4 py-2 font-semibold text-gray-900 hover:bg-gray-50" data-plan="demo">PayPal (Demo)</button>
+      </div>
+    </div>
+
+    <p class="mt-6 text-sm text-gray-500">By subscribing you agree to our <a href="/index.html#terms" class="text-sky-600 hover:text-sky-700">Terms</a> and <a href="/index.html#privacy" class="text-sky-600 hover:text-sky-700">Privacy Policy</a>.</p>
+  </main>
+
+  <script>
+    document.querySelectorAll('.subscribeBtn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Placeholder payment success
+        localStorage.setItem('st_subscribed','true');
+        const redirect = new URLSearchParams(location.search).get('redirect') || '/use-cases/cloud-security-architecture.html';
+        location.href = redirect;
+      });
+    });
+  </script>
+</body>
+</html>
