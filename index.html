@@ -95,6 +95,17 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
         
+        /* Animated blobs and logo effects */
+        .animate-blob { animation: blobMove 22s ease-in-out infinite; }
+        .animate-blob-delay { animation: blobMove 26s ease-in-out infinite; animation-delay: 6s; }
+        @keyframes blobMove {
+            0% { transform: translate(0,0) scale(1); opacity: 0.6; }
+            50% { transform: translate(30px,-20px) scale(1.08); opacity: 0.9; }
+            100% { transform: translate(0,0) scale(1); opacity: 0.6; }
+        }
+        .logo-cloud img { filter: grayscale(100%) contrast(1) opacity(0.7); }
+        .logo-cloud img:hover { opacity: 1; }
+
         /* Print-specific styles */
         @media print {
             body {
@@ -153,17 +164,20 @@
     <noscript><div class="bg-yellow-100 text-yellow-900 text-center py-3">JavaScript is required to use the assessment tool and report features.</div></noscript>
 
     <div id="login-screen" class="relative min-h-screen bg-gradient-to-br from-indigo-950 via-slate-900 to-black text-white overflow-hidden">
-        <div aria-hidden="true" class="pointer-events-none absolute -top-24 -left-24 h-96 w-96 bg-indigo-600/30 rounded-full blur-3xl"></div>
-        <div aria-hidden="true" class="pointer-events-none absolute -bottom-24 -right-24 h-[28rem] w-[28rem] bg-fuchsia-600/20 rounded-full blur-3xl"></div>
+                 <div aria-hidden="true" class="pointer-events-none absolute -top-24 -left-24 h-96 w-96 bg-indigo-600/30 rounded-full blur-3xl animate-blob"></div>
+         <div aria-hidden="true" class="pointer-events-none absolute -bottom-24 -right-24 h-[28rem] w-[28rem] bg-fuchsia-600/20 rounded-full blur-3xl animate-blob-delay"></div>
         <div class="relative z-10 max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center">
             <div class="space-y-6">
                 <div class="flex items-center space-x-3">
-                    <svg class="w-9 h-9 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    <span class="relative inline-flex h-10 w-10 items-center justify-center">
+                        <span class="absolute inline-flex h-full w-full rounded-full bg-indigo-500 opacity-30 animate-ping"></span>
+                        <svg class="relative w-9 h-9 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </span>
                     <span class="text-2xl font-bold">SolTech</span>
                 </div>
                 <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">Enterprise-grade Architecture and Security</h1>
                 <p class="text-slate-300 text-lg">Align business and technology using TOGAF and SABSA to deliver secure, agile, and measurable outcomes.</p>
-                <div class="grid grid-cols-2 gap-4 max-w-xl">
+                <div class="grid grid-cols-2 gap-4 max-w-xl logo-cloud">
                     <div class="bg-white/10 rounded-xl p-4 border border-white/10">
                         <p class="text-sm font-semibold">TOGAF</p>
                         <p class="text-xs text-slate-300">ADM, governance, and building blocks</p>
