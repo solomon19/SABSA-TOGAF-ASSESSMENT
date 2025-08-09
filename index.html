@@ -4,9 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SolTech Enterprise Architecture Consultancy</title>
+    <meta name="description" content="SolTech delivers enterprise architecture and security architecture consulting aligned to TOGAF and SABSA, from strategy to execution.">
+    <meta name="robots" content="index,follow">
+    <meta name="theme-color" content="#4f46e5">
+    <link rel="canonical" href="https://example.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="SolTech Enterprise Architecture Consultancy">
+    <meta property="og:description" content="Enterprise Architecture and Security Architecture consulting aligned to TOGAF and SABSA.">
+    <meta property="og:url" content="https://example.com/">
+    <meta property="og:image" content="https://example.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SolTech Enterprise Architecture Consultancy">
+    <meta name="twitter:description" content="Enterprise Architecture and Security Architecture consulting aligned to TOGAF and SABSA.">
+    <meta name="twitter:image" content="https://example.com/og-image.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.tailwindcss.com https://cdn.jsdelivr.net https://fonts.googleapis.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' https: data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+    <link rel="manifest" href="/manifest.webmanifest">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script type="application/ld+json">{
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "SolTech Enterprise Architecture Consultancy",
+      "url": "https://example.com/",
+      "logo": "https://example.com/logo.png",
+      "sameAs": [
+        "https://www.linkedin.com/in/solomonbaye"
+      ]
+    }</script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -121,6 +149,8 @@
     </style>
 </head>
 <body class="bg-white text-gray-800">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-indigo-600 focus:text-white focus:px-4 focus:py-2 focus:rounded">Skip to main content</a>
+    <noscript><div class="bg-yellow-100 text-yellow-900 text-center py-3">JavaScript is required to use the assessment tool and report features.</div></noscript>
 
     <div id="login-screen" class="min-h-screen flex items-center justify-center bg-gray-100">
         <div class="w-full max-w-4xl lg:max-w-6xl mx-auto flex flex-col md:flex-row bg-white rounded-2xl shadow-2xl overflow-hidden">
@@ -136,7 +166,7 @@
                             <input id="password" name="password" type="password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password">
                         </div>
                     </div>
-                    <p id="loginError" class="text-red-500 text-sm hidden">Invalid username or password.</p>
+                    <p id="loginError" class="text-red-500 text-sm hidden" role="alert" aria-live="assertive">Invalid username or password.</p>
                     <div>
                         <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                             Sign in as Admin
@@ -174,18 +204,21 @@
         </div>
     </div>
 
-    <div id="main-content" class="hidden">
+    <main id="main-content" class="hidden" role="main">
         <!-- Header & Nav -->
-        <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-40">
+        <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-40" role="banner">
             <div class="container mx-auto px-6">
                 <div class="flex items-center justify-between h-20">
                     <a href="#" class="flex items-center">
                         <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                         <span class="ml-3 text-2xl font-bold text-gray-900">SolTech</span>
                     </a>
-                    <nav class="hidden md:flex items-center space-x-8">
+                    <nav class="hidden md:flex items-center space-x-8" aria-label="Primary">
                         <a href="#services" class="text-gray-600 hover:text-indigo-600 font-medium">Services</a>
+                        <a href="#frameworks" class="text-gray-600 hover:text-indigo-600 font-medium">Frameworks</a>
+                        <a href="#methodology" class="text-gray-600 hover:text-indigo-600 font-medium">Methodology</a>
                         <a href="#assessment-tool" class="text-gray-600 hover:text-indigo-600 font-medium">Assessment</a>
+                        <a href="#trust-center" class="text-gray-600 hover:text-indigo-600 font-medium">Trust Center</a>
                         <a href="#contact" class="text-gray-600 hover:text-indigo-600 font-medium">Contact</a>
                     </nav>
                     <a href="#assessment-tool" class="hidden md:inline-block bg-indigo-600 text-white font-bold py-2 px-6 rounded-lg shadow-md hover:bg-indigo-700 transition-transform hover:scale-105">
@@ -313,19 +346,125 @@
             </div>
         </div>
 
+        <!-- Methodology Section -->
+        <section id="methodology" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gray-900">Methodology: TOGAF × SABSA Alignment</h2>
+                    <p class="mt-4 text-lg text-gray-600">We align business strategy, risk, and delivery by mapping TOGAF ADM to SABSA layers and NIST CSF outcomes.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow border">
+                        <h3 class="font-bold text-indigo-700">Strategy & Governance</h3>
+                        <p class="mt-2 text-gray-700">TOGAF Architecture Vision, Principles, and Governance with SABSA Contextual and Conceptual security strategy.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow border">
+                        <h3 class="font-bold text-indigo-700">Design & Traceability</h3>
+                        <p class="mt-2 text-gray-700">Logical services and information flows mapped to SABSA Logical, with traceability to business attributes.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow border">
+                        <h3 class="font-bold text-indigo-700">Build & Operate</h3>
+                        <p class="mt-2 text-gray-700">Opportunities & Solutions through Migration Planning, implemented as SABSA Physical/Component and Service Ops.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Frameworks Section -->
+        <section id="frameworks" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gray-900">Frameworks We Use</h2>
+                    <p class="mt-4 text-lg text-gray-600">We anchor delivery on globally recognized standards so strategy, risk, and delivery stay aligned.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100">
+                        <h3 class="text-2xl font-bold text-indigo-700">TOGAF</h3>
+                        <p class="mt-2 text-gray-600">Architecture capability, ADM, principles, and governance for Business, Data, Application, and Technology domains.</p>
+                        <ul class="mt-4 space-y-2 text-gray-700 list-disc pl-5">
+                            <li>Architecture Vision to Opportunities & Solutions</li>
+                            <li>Architecture Repository and Building Blocks</li>
+                            <li>Architecture Contracts and Compliance Reviews</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100">
+                        <h3 class="text-2xl font-bold text-indigo-700">SABSA</h3>
+                        <p class="mt-2 text-gray-600">Business-driven security architecture across the Contextual, Conceptual, Logical, Physical, and Component layers.</p>
+                        <ul class="mt-4 space-y-2 text-gray-700 list-disc pl-5">
+                            <li>Business Attributes Profiles and Control Objectives</li>
+                            <li>Risk, Assurance, and Metrics with traceability</li>
+                            <li>Integration with enterprise change and operations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Ethiopian Testimonial Section -->
         <div class="py-20 bg-gray-50">
             <div class="container mx-auto px-6 text-center">
-                 <img src="https://placehold.co/100x40/cccccc/cccccc?text=Ethio" alt="Ethio Telecom Logo" class="mx-auto mb-6 grayscale opacity-60">
+                 <img src="https://placehold.co/100x40/cccccc/cccccc?text=Ethio" alt="Ethio Telecom Logo" class="mx-auto mb-6 grayscale opacity-60" loading="lazy">
                 <p class="text-xl md:text-2xl font-medium max-w-3xl mx-auto text-gray-700">"Working with SolTech allowed us to build a scalable and secure architecture, which was critical for our national digital expansion. Their deep understanding of both global standards and local context is unmatched."</p>
                 <p class="mt-6 font-bold text-lg text-gray-900">Abebe Kebede, Chief Enterprise Architect at Ethio Telecom</p>
             </div>
         </div>
         
-        <footer id="contact" class="py-12 bg-gray-900 text-white">
+        <!-- Trust Center -->
+        <section id="trust-center" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gray-900">Trust Center</h2>
+                    <p class="mt-4 text-lg text-gray-600">Security, privacy, and compliance commitments to safeguard your data and operations.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow border">
+                        <h3 class="font-bold text-indigo-700">Security</h3>
+                        <ul class="mt-3 text-gray-700 space-y-1 list-disc pl-5">
+                            <li>Zero Trust design principles</li>
+                            <li>Encryption in transit and at rest guidance</li>
+                            <li>Secure SDLC and threat modeling</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow border">
+                        <h3 class="font-bold text-indigo-700">Privacy</h3>
+                        <ul class="mt-3 text-gray-700 space-y-1 list-disc pl-5">
+                            <li>Data minimization and classification</li>
+                            <li>Retention and subject rights workflows</li>
+                            <li>Privacy-by-design reviews</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow border">
+                        <h3 class="font-bold text-indigo-700">Compliance</h3>
+                        <ul class="mt-3 text-gray-700 space-y-1 list-disc pl-5">
+                            <li>ISO 27001 aligned controls</li>
+                            <li>NIST CSF mapping and CMMC readiness</li>
+                            <li>Regulatory assessments (GDPR, HIPAA)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Privacy Policy -->
+        <section id="privacy" class="py-20 bg-white">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <h2 class="text-3xl font-bold text-gray-900">Privacy Policy</h2>
+                <p class="mt-4 text-gray-700">We collect only the information necessary to deliver our services. Assessment responses entered on this site are processed in your browser and are not transmitted unless you explicitly share them. For inquiries or data rights requests, contact us at <a href="mailto:sol19.b@gmail.com" class="text-indigo-600 underline">sol19.b@gmail.com</a>.</p>
+            </div>
+        </section>
+
+        <!-- Terms of Service -->
+        <section id="terms" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <h2 class="text-3xl font-bold text-gray-900">Terms of Service</h2>
+                <p class="mt-4 text-gray-700">The content and tools provided are for informational purposes and do not constitute legal or compliance advice. Use at your own discretion. Engagement terms, deliverables, and SLAs are defined in a separate commercial agreement.</p>
+            </div>
+        </section>
+        
+        <footer id="contact" class="py-12 bg-gray-900 text-white" role="contentinfo">
             <div class="container mx-auto px-6 text-center">
                 <h3 class="font-bold text-2xl mb-4">SolTech Enterprise Architecture Consultancy</h3>
-                <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6 text-gray-400">
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6 text-gray-400" aria-label="Contact Links">
                     <a href="mailto:sol19.b@gmail.com" class="hover:text-indigo-400 flex items-center">
                         <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
                         sol19.b@gmail.com
@@ -339,22 +478,39 @@
                         LinkedIn
                     </a>
                 </div>
-                <p class="mt-6 text-sm text-gray-500">&copy; 2025 SolTech Enterprise Architecture Consultancy.</p>
+                <div class="mt-6 text-sm text-gray-400">
+                    <a href="#privacy" class="hover:text-indigo-400">Privacy Policy</a>
+                    <span class="mx-2">•</span>
+                    <a href="#terms" class="hover:text-indigo-400">Terms of Service</a>
+                </div>
+                <p class="mt-2 text-sm text-gray-500">&copy; 2025 SolTech Enterprise Architecture Consultancy.</p>
             </div>
         </footer>
+    </main>
+
+    <!-- Cookie Consent -->
+    <div id="cookie-consent" class="fixed bottom-4 inset-x-0 px-4 z-50 hidden">
+        <div class="max-w-5xl mx-auto bg-white border border-gray-200 shadow-xl rounded-xl p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <p class="text-sm text-gray-700">We use essential cookies to enable site functionality and analytics to improve your experience. By clicking Accept, you consent to our use of cookies.</p>
+            <div class="flex items-center gap-2">
+                <button id="cookie-decline" class="px-4 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50">Decline</button>
+                <button id="cookie-accept" class="px-4 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700">Accept</button>
+            </div>
+        </div>
     </div>
 
     <!-- Report Modal -->
-    <div id="reportModal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center p-4 z-50 hidden no-print">
+    <div id="reportModal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center p-4 z-50 hidden no-print" role="dialog" aria-modal="true" aria-labelledby="reportTitle">
         <div class="bg-white rounded-lg shadow-2xl w-full max-w-6xl max-h-[90vh] flex flex-col">
+            <h1 id="reportTitle" class="sr-only">Assessment Report</h1>
             <div class="p-4 border-b border-gray-200 flex justify-between items-center no-print">
-                <div class="flex border border-gray-200 rounded-lg p-1">
-                    <button data-tab="infographic" class="report-tab font-semibold py-2 px-4 rounded-md text-sm">Infographic Summary</button>
-                    <button data-tab="details" class="report-tab font-semibold py-2 px-4 rounded-md text-sm">Detailed Report</button>
+                <div class="flex border border-gray-200 rounded-lg p-1" role="tablist" aria-label="Report Sections">
+                    <button data-tab="infographic" class="report-tab font-semibold py-2 px-4 rounded-md text-sm" role="tab" aria-selected="false" tabindex="-1">Infographic Summary</button>
+                    <button data-tab="details" class="report-tab font-semibold py-2 px-4 rounded-md text-sm" role="tab" aria-selected="false" tabindex="-1">Detailed Report</button>
                 </div>
                 <div>
                     <button id="printReportBtn" class="bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-lg mr-2 hover:bg-gray-300 transition-colors">Print</button>
-                    <button id="closeReportBtn" class="bg-red-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-red-700 transition-colors">Close</button>
+                    <button id="closeReportBtn" class="bg-red-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-red-700 transition-colors" aria-label="Close report dialog">Close</button>
                 </div>
             </div>
             <div id="reportOutput" class="overflow-y-auto">
@@ -787,6 +943,7 @@
 
                 reportModal.classList.remove('hidden');
                 document.querySelector('.report-tab[data-tab="infographic"]').click();
+                closeReportBtn.focus();
             });
 
             closeReportBtn.addEventListener('click', () => {
@@ -797,13 +954,26 @@
                 window.print();
             });
 
+            // Close on Escape
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !reportModal.classList.contains('hidden')) {
+                    reportModal.classList.add('hidden');
+                }
+            });
+
             // Tab functionality for report modal
             const reportTabs = document.querySelectorAll('.report-tab');
             reportTabs.forEach(tab => {
                 tab.addEventListener('click', () => {
                     const tabName = tab.dataset.tab;
-                    reportTabs.forEach(t => t.classList.remove('active'));
+                    reportTabs.forEach(t => {
+                        t.classList.remove('active');
+                        t.setAttribute('aria-selected', 'false');
+                        t.setAttribute('tabindex', '-1');
+                    });
                     tab.classList.add('active');
+                    tab.setAttribute('aria-selected', 'true');
+                    tab.setAttribute('tabindex', '0');
 
                     document.querySelectorAll('.report-content').forEach(content => {
                         content.classList.remove('active');
@@ -812,6 +982,27 @@
                 });
             });
 
+            // Cookie consent logic
+            const cookieBanner = document.getElementById('cookie-consent');
+            const acceptBtn = document.getElementById('cookie-accept');
+            const declineBtn = document.getElementById('cookie-decline');
+            const consent = localStorage.getItem('st_cookie_consent');
+            if (!consent) {
+                cookieBanner.classList.remove('hidden');
+            }
+            function setConsent(value) {
+                localStorage.setItem('st_cookie_consent', value);
+                cookieBanner.classList.add('hidden');
+            }
+            acceptBtn?.addEventListener('click', () => setConsent('accepted'));
+            declineBtn?.addEventListener('click', () => setConsent('declined'));
+
+            // Register service worker for basic offline and performance
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/sw.js').catch(() => {});
+                });
+            }
         });
     </script>
 </body>
