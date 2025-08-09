@@ -592,6 +592,9 @@
                     { q: "What are the primary business objectives for the next 1-3 years (e.g., increase market share, launch new products, expand geographically)?", a: "This defines the mission that the architecture must support. Security and IT objectives must be traceable back to these goals.", type: 'open', response: '' },
                     { q: "What are the most critical business processes for your organization's success (e.g., online sales, manufacturing, customer service)?", a: "Identifying these 'crown jewel' processes helps prioritize protection efforts and investments.", type: 'open', response: '' },
                     { q: "What is your organization's tolerance for risk regarding security incidents (e.g., financial loss, reputational damage, operational downtime)?", a: "This directly influences the level of security investment and the stringency of controls.", type: 'multiple-choice', options: ['Very Low (Risk Averse)', 'Low', 'Moderate', 'High', 'Very High (Risk Seeking)'], response: '' },
+                    { q: "Who are the key stakeholder groups and decision-makers for architecture and security?", a: "Clear stakeholder mapping aids governance and speeds decisions.", type: 'open', response: '' },
+                    { q: "Which business assets and data categories are most critical (e.g., PII, IP, financial records)?", a: "Asset and data criticality underpins classification and control strength.", type: 'open', response: '' },
+                    { q: "Which regulatory or contractual requirements materially impact your architecture?", a: "External obligations (e.g., GDPR, HIPAA, PCI DSS) shape design constraints and controls.", type: 'multiple-choice', options: ['None', 'Industry-specific (e.g., HIPAA, PCI)', 'Regional privacy (e.g., GDPR)', 'Multiple jurisdictions/complex'], response: '' },
                 ]
             },
             {
@@ -604,6 +607,9 @@
                     { q: "What is the primary motivation for your security program?", a: "This reveals the core philosophy: is security seen as a compliance checkbox, a risk mitigator, or a business enabler?", type: 'multiple-choice', options: ['Compliance-Driven', 'Risk-Driven', 'Threat-Driven', 'Business-Enablement-Driven'], response: '' },
                     { q: "How do you decide which security controls are necessary and which are not? Is this decision-making process documented?", a: "This is a key test of a systematic approach to control selection, rather than an ad-hoc one.", type: 'multiple-choice', options: ['Yes, formally documented and governed', 'An informal process exists', 'Decisions are ad-hoc', 'I don\'t know'], response: '' },
                     { q: "How is security integrated into new projects or system development lifecycles?", a: "This determines if security is 'built-in' from the start or 'bolted-on' as an afterthought, which is far more costly.", type: 'multiple-choice', options: ['Security is involved from the concept/planning phase', 'Security is engaged during design/development', 'Security is engaged for testing before deployment', 'Security is involved only after deployment'], response: '' },
+                    { q: "Which control frameworks guide your program?", a: "Common baselines improve consistency and auditability.", type: 'multiple-choice', options: ['ISO 27001/27002', 'NIST CSF/800-53', 'CIS Controls', 'Mixture/Other', 'None'], response: '' },
+                    { q: "How is risk appetite expressed and translated into control objectives?", a: "Linking risk appetite to controls ensures proportionality.", type: 'open', response: '' },
+                    { q: "Do you have documented architecture principles (security and EA) that guide decisions?", a: "Principles enable consistent trade-offs.", type: 'multiple-choice', options: ['Yes, current and enforced', 'Yes, but outdated', 'Informal only', 'No'], response: '' },
                 ]
             },
             {
@@ -615,6 +621,9 @@
                 questions: [
                     { q: "What is your high-level approach to managing user identities and controlling access to information?", a: "This describes the fundamental model for ensuring the right people have the right access.", type: 'multiple-choice', options: ['Centralized (e.g., single corporate directory)', 'Federated (e.g., using partner identities)', 'Decentralized / Self-Sovereign', 'A hybrid approach'], response: '' },
                     { q: "How do you logically separate your network and applications to limit the impact of a potential breach?", a: "Effective segmentation contains threats and prevents minor incidents from becoming major crises.", type: 'multiple-choice', options: ['No formal segmentation', 'Basic network zones (e.g., DMZ, Internal)', 'Micro-segmentation based on application/workload', 'Zero-trust architecture principles are applied'], response: '' },
+                    { q: "Do you apply a data classification scheme that drives protective controls?", a: "Classification must drive encryption, access, and monitoring.", type: 'multiple-choice', options: ['Yes, organization-wide', 'Partially, by function or system', 'Informal', 'No'], response: '' },
+                    { q: "How are third-party and partner integrations secured logically?", a: "Design choices for APIs and B2B links determine risk.", type: 'multiple-choice', options: ['Point-to-point tokens/keys', 'Gateway/API mgmt with centralized policies', 'Zero trust brokered access', 'Ad-hoc/on a case basis'], response: '' },
+                    { q: "How is privileged access managed logically across infrastructure and apps?", a: "Logical PAM models reduce blast radius.", type: 'open', response: '' },
                 ]
             },
             {
@@ -626,6 +635,9 @@
                 questions: [
                     { q: "Where are your critical business applications primarily hosted?", a: "The physical or virtual location of assets is key to applying the correct protections.", type: 'multiple-choice', options: ['Primarily On-Premise Data Centers', 'Primarily a single Public Cloud (e.g., AWS, Azure, GCP)', 'Hybrid Cloud (Mix of On-Premise and Public Cloud)', 'Multi-Cloud (Using multiple Public Cloud providers)'], response: '' },
                     { q: "How well are your different security tools integrated to work together?", a: "A collection of unintegrated tools is not an architecture. Integration enables correlation and automated response.", type: 'multiple-choice', options: ['Tools operate in silos with no integration', 'Some point-to-point integrations exist', 'A central platform (e.g., SIEM/SOAR) provides significant integration', 'Highly automated and integrated ecosystem'], response: '' },
+                    { q: "Do you operate CSPM/CWPP or equivalent cloud-native controls?", a: "Cloud security posture needs continuous assurance.", type: 'multiple-choice', options: ['Yes, mature coverage', 'Partially', 'Evaluating', 'No'], response: '' },
+                    { q: "What is your endpoint management coverage (EDR/MDM)?", a: "Endpoints remain a primary entry point.", type: 'multiple-choice', options: ['>95%', '70–95%', '30–70%', '<30%'], response: '' },
+                    { q: "Any data residency constraints for specific workloads?", a: "Residency may constrain providers/regions.", type: 'open', response: '' },
                 ]
             },
             {
@@ -637,6 +649,9 @@
                 questions: [
                     { q: "How does your organization monitor for and respond to security threats?", a: "This assesses the core of your detection and response capabilities.", type: 'multiple-choice', options: ['No formal monitoring / Ad-hoc response', 'In-house team, business hours only', 'In-house team, 24/7', 'Co-managed with a service provider', 'Fully outsourced to a service provider'], response: '' },
                     { q: "How frequently are security policies and procedures formally reviewed and updated to keep pace with business and threat changes?", a: "This tests for a living, breathing governance framework rather than a static one.", type: 'multiple-choice', options: ['Annually or more frequently', 'Every 2-3 years', 'Rarely / on an ad-hoc basis', 'Never'], response: '' },
+                    { q: "What is the cadence and coverage of vulnerability management?", a: "Regular scanning and remediation reduce exposure window.", type: 'multiple-choice', options: ['Weekly with SLAs', 'Monthly with SLAs', 'Quarterly/ad-hoc', 'None'], response: '' },
+                    { q: "How often are backup and disaster recovery plans tested?", a: "Testing ensures resilient recovery.", type: 'multiple-choice', options: ['Quarterly+', 'Semi-annually', 'Annually', 'Rarely/Never'], response: '' },
+                    { q: "Is there a formal change management process that integrates security review?", a: "Change control reduces operational risk.", type: 'multiple-choice', options: ['Yes, CAB with security gate', 'Yes, informal', 'No'], response: '' },
                 ]
             },
             {
@@ -649,6 +664,9 @@
                     { q: "Does the organization have a defined set of guiding principles for making architecture decisions?", a: "Architecture principles are the foundation for EA governance and decision-making.", type: 'multiple-choice', options: ['Yes, formally documented and governed', 'Yes, but they are informal or outdated', 'Only for specific domains (e.g., technology)', 'No'], response: '' },
                     { q: "Is there a formal group (e.g., an Architecture Review Board) responsible for governing architectural decisions?", a: "A formal governance body is a key component for ensuring architectural consistency and alignment.", type: 'multiple-choice', options: ['Yes, with a formal charter and regular meetings', 'Yes, but it operates informally', 'No, governance is ad-hoc', 'I don\'t know'], response: '' },
                     { q: "How are architectural decisions communicated to and enforced on implementation projects?", a: "This is a critical test of the architecture's real-world impact and compliance.", type: 'multiple-choice', options: ['Formal architecture compliance reviews are mandatory', 'Architecture contracts are used', 'Informal guidance and consultation is provided', 'There is little to no enforcement'], response: '' },
+                    { q: "Is there an Architecture Repository with standards, patterns, and building blocks?", a: "A well-curated repository accelerates delivery and improves consistency.", type: 'multiple-choice', options: ['Yes, curated and used', 'Exists but underused', 'Informal collections', 'None'], response: '' },
+                    { q: "To what extent are reusable architecture building blocks applied across programs?", a: "Reuse improves speed and quality.", type: 'multiple-choice', options: ['Systematic reuse', 'Occasional reuse', 'Rarely', 'Never'], response: '' },
+                    { q: "Are migration planning and architecture roadmaps governed and tracked?", a: "Roadmaps translate vision into execution.", type: 'multiple-choice', options: ['Yes, governed with KPIs', 'Partially', 'Ad-hoc', 'No'], response: '' },
                 ]
             },
             {
@@ -664,6 +682,12 @@
                     { q: "Data Security", a: "How well is your sensitive data protected through measures like classification, encryption, and loss prevention?", type: 'rating', options: ['1','2','3','4','5'], response: '' },
                     { q: "Incident Response", a: "How prepared is your organization to detect, respond to, and recover from a security incident?", type: 'rating', options: ['1','2','3','4','5'], response: '' },
                     { q: "Third-Party Risk Management", a: "How effectively do you manage the security risks associated with your vendors and partners?", type: 'rating', options: ['1','2','3','4','5'], response: '' },
+                    { q: "Vulnerability Management", a: "How consistent and timely are your scanning and patch cycles across environments?", type: 'rating', options: ['1','2','3','4','5'], response: '' },
+                    { q: "Cloud Security", a: "How mature are your cloud security controls (CSPM, IAM hygiene, workload protection)?", type: 'rating', options: ['1','2','3','4','5'], response: '' },
+                    { q: "DevSecOps", a: "How well are security practices integrated into your CI/CD pipelines (SAST/DAST/Secrets/SDLC)?", type: 'rating', options: ['1','2','3','4','5'], response: '' },
+                    { q: "Data Governance", a: "How effective are your data quality, lineage, and stewardship processes?", type: 'rating', options: ['1','2','3','4','5'], response: '' },
+                    { q: "Business Continuity & DR", a: "How mature are your continuity planning and recovery exercises?", type: 'rating', options: ['1','2','3','4','5'], response: '' },
+                    { q: "Asset Management", a: "How accurate and complete is your inventory of hardware, software, and cloud assets?", type: 'rating', options: ['1','2','3','4','5'], response: '' },
                 ]
             },
             {
@@ -676,6 +700,9 @@
                     { q: "What is the primary driver for this architecture engagement?", a: "Understanding the primary motivation helps tailor the engagement's focus.", type: 'multiple-choice', options: ['Regulatory Audit / Compliance', 'Digital Transformation Initiative', 'Post-Incident Response', 'Board-Level Directive', 'Proactive Improvement'], response: '' },
                     { q: "How ready is your organization's culture and processes to support a significant architectural change?", a: "This helps gauge the organization's readiness and capacity for change.", type: 'multiple-choice', options: ['Low - Significant resistance to change expected', 'Moderate - Some key enablers are in place', 'High - The organization is agile and ready for change'], response: '' },
                     { q: "What is the preferred commercial model for this engagement?", a: "This opens the conversation about the financial structure of the agreement.", type: 'multiple-choice', options: ['Fixed Price', 'Time & Materials', 'Retainer-based'], response: '' },
+                    { q: "Estimated budget range for this engagement?", a: "Budget informs scope, phasing, and resourcing.", type: 'multiple-choice', options: ['< $50k', '$50k–$150k', '$150k–$500k', '>$500k', 'Undisclosed'], response: '' },
+                    { q: "Timeline urgency and target go-live?", a: "Urgency impacts staffing and governance cadence.", type: 'open', response: '' },
+                    { q: "Internal resource availability (SMEs, PMO, Security, Engineering)?", a: "Availability determines feasible pace and working model.", type: 'multiple-choice', options: ['Dedicated core team available', 'Partial allocation', 'Minimal availability'], response: '' },
                 ]
             },
             {
@@ -688,6 +715,10 @@
                 questions: [
                     { q: "What is the total number of business units and IT systems involved?", a: "Complexity is a key driver of effort.", type: 'open', response: '' },
                     { q: "How many internal and external stakeholders are expected to participate?", a: "High stakeholder counts increase coordination effort.", type: 'open', response: '' },
+                    { q: "Approximately how many applications/services are in scope?", a: "Application count drives discovery and design throughput.", type: 'open', response: '' },
+                    { q: "How many cloud accounts/subscriptions and on-prem environments are in scope?", a: "Environment count affects integration and governance.", type: 'open', response: '' },
+                    { q: "Which compliance regimes must be addressed in the engagement?", a: "Compliance scope influences controls and evidence.", type: 'multiple-choice', options: ['ISO 27001', 'SOC 2', 'PCI', 'HIPAA', 'GDPR', 'Other'], response: '' },
+                    { q: "List known dependencies, constraints, or deadlines we must consider.", a: "Surfacing constraints early prevents rework.", type: 'open', response: '' },
                 ]
             }
         ];
