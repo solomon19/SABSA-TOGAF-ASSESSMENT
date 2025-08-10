@@ -3,1433 +3,666 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SolTech Enterprise Architecture Consultancy</title>
-    <meta name="description" content="SolTech delivers enterprise architecture and security architecture consulting aligned to TOGAF and SABSA, from strategy to execution.">
+    <title>SolTech | Strategic Enterprise Architecture</title>
+    <meta name="description" content="SolTech provides world-class Enterprise & Security Architecture consulting to de-risk transformation and align technology with business ambition.">
     <meta name="robots" content="index,follow">
-    <meta name="theme-color" content="#0ea5e9">
-    <link rel="canonical" href="https://example.com/">
+    <meta name="theme-color" content="#0c4a6e">
+    <link rel="canonical" href="https://example.com/index.html">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="SolTech Enterprise Architecture Consultancy">
-    <meta property="og:description" content="Enterprise Architecture and Security Architecture consulting aligned to TOGAF and SABSA.">
-    <meta property="og:url" content="https://example.com/">
-    <meta property="og:image" content="https://example.com/og-image.png">
+    <meta property="og:title" content="SolTech | Strategic Enterprise Architecture">
+    <meta property="og:description" content="From architectural complexity to business clarity. We align TOGAF & SABSA to deliver secure, scalable, and resilient enterprise platforms.">
+    <meta property="og:url" content="https://example.com/index.html">
+    <meta property="og:image" content="https://placehold.co/1200x630/0c4a6e/ffffff?text=SolTech">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SolTech Enterprise Architecture Consultancy">
-    <meta name="twitter:description" content="Enterprise Architecture and Security Architecture consulting aligned to TOGAF and SABSA.">
-    <meta name="twitter:image" content="https://example.com/og-image.png">
+    <meta name="twitter:title" content="SolTech | Strategic Enterprise Architecture">
+    <meta name="twitter:description" content="From architectural complexity to business clarity. We align TOGAF & SABSA to deliver secure, scalable, and resilient enterprise platforms.">
+    <meta name="twitter:image" content="https://placehold.co/1200x630/0c4a6e/ffffff?text=SolTech">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.tailwindcss.com https://cdn.jsdelivr.net https://fonts.googleapis.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' https: data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
-    <link rel="manifest" href="/manifest.webmanifest">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
     <script type="application/ld+json">{
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "SolTech Enterprise Architecture Consultancy",
       "url": "https://example.com/",
       "logo": "https://example.com/logo.png",
-      "sameAs": [
-        "https://www.linkedin.com/in/solomonbaye"
-      ]
+      "sameAs": [ "https://www.linkedin.com/in/solomonbaye" ]
     }</script>
+    
     <style>
+        :root {
+            --sky-900: #0c4a6e;
+            --sky-700: #0369a1;
+            --sky-600: #0284c7;
+            --sky-100: #e0f2fe;
+            --slate-800: #1e293b;
+            --slate-600: #475569;
+            --slate-400: #94a3b8;
+            --slate-200: #e2e8f0;
+            --slate-100: #f1f5f9;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0f4ff; /* Light blue background */
-        }
-        .hero-bg {
             background-color: #f8fafc;
+            color: #1e293b;
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at 20% 30%, rgba(2, 132, 199, 0.1), transparent 40%),
+                        radial-gradient(circle at 80% 70%, rgba(12, 74, 110, 0.1), transparent 40%),
+                        #f8fafc;
+        }
+        .btn-primary {
+            @apply inline-block bg-sky-700 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-sky-800 transition-all duration-300 transform hover:-translate-y-0.5;
+        }
+        .btn-secondary {
+            @apply inline-block bg-white text-sky-700 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-slate-100 transition-all duration-300 transform hover:-translate-y-0.5;
+        }
+        .section-title {
+            @apply text-4xl md:text-5xl font-extrabold tracking-tight text-slate-800;
+        }
+        .section-subtitle {
+            @apply mt-4 text-lg md:text-xl max-w-3xl mx-auto text-slate-600;
         }
         .service-card {
             transition: all 0.3s ease-in-out;
+            border: 1px solid var(--slate-200);
         }
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
+            border-color: var(--sky-600);
         }
         .sabsa-layer {
             transition: all 0.3s ease-in-out;
             cursor: pointer;
+            border: 2px solid transparent;
         }
-        .sabsa-layer:hover, .sabsa-layer.active {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            border-color: #0ea5e9;
+        .sabsa-layer:hover {
+            transform: translateY(-4px);
+            border-color: var(--sky-600);
         }
         .sabsa-layer.active {
-             border-color: #0ea5e9;
-             background-color: #e0f2fe;
+             border-color: var(--sky-700);
+             background-color: var(--sky-100);
+             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
         }
-        .content-section {
-            display: none;
-        }
+        .content-section { display: none; }
         .content-section.active {
             display: block;
-            animation: fadeIn 0.5s ease-in-out;
+            animation: fadeIn 0.6s ease-in-out;
         }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        #reportModal {
-            transition: opacity 0.3s ease;
-        }
-        .report-tab {
-            transition: all 0.2s ease-in-out;
-        }
+        #reportModal { transition: opacity 0.3s ease; }
+        .report-tab { transition: all 0.2s ease-in-out; }
         .report-tab.active {
-            border-color: #0ea5e9;
-            color: #0ea5e9;
-            background-color: #e0f2fe;
+            border-color: var(--sky-600);
+            color: var(--sky-700);
+            background-color: var(--sky-100);
+            font-weight: 600;
         }
-        .report-content {
-            display: none;
-        }
-        .report-content.active {
-            display: block;
-        }
-        .login-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        
-        /* Animated blobs and logo effects */
-        .animate-blob { animation: blobMove 22s ease-in-out infinite; }
-        .animate-blob-delay { animation: blobMove 26s ease-in-out infinite; animation-delay: 6s; }
-        @keyframes blobMove {
-            0% { transform: translate(0,0) scale(1); opacity: 0.6; }
-            50% { transform: translate(30px,-20px) scale(1.08); opacity: 0.9; }
-            100% { transform: translate(0,0) scale(1); opacity: 0.6; }
-        }
-        .logo-cloud img { filter: grayscale(100%) contrast(1) opacity(0.7); }
-        .logo-cloud img:hover { opacity: 1; }
+        .report-content { display: none; }
+        .report-content.active { display: block; }
 
         /* Print-specific styles */
         @media print {
-            body {
-                font-size: 10pt;
-                line-height: 1.4;
-                background-color: #ffffff !important;
-            }
-            .no-print, #login-screen, header, footer, #main-report-button-container, #sabsa-nav, #assessment-tool .text-center.mb-12, .content-section .mt-8 {
-                display: none !important;
-            }
-            #reportModal {
-                position: static;
-                display: block !important;
-                background: none;
-                box-shadow: none;
-            }
-            #reportModal > div {
-                box-shadow: none;
-                max-height: none;
-                width: 100%;
-                max-width: 100%;
-            }
-            #reportOutput {
-                overflow-y: visible;
-            }
-            .report-content {
-                display: block !important; /* Show all report sections for printing */
-                padding: 0 !important;
-            }
-            #infographic-content {
-                page-break-after: always;
-            }
-            #details-content h2 {
-                font-size: 16pt;
-                border-bottom: 2px solid #0ea5e9;
-                padding-bottom: 4px;
-                margin-top: 20px;
-                page-break-before: auto;
-                page-break-inside: avoid;
-            }
-            #details-content .mb-8 {
-                 page-break-inside: avoid;
-            }
-            #details-content .mb-4 {
-                page-break-inside: avoid;
-            }
-            .chart-container {
-                height: 50vh !important;
-                width: 100% !important;
-            }
+            body { font-size: 10pt; line-height: 1.4; background-color: #ffffff !important; }
+            .no-print, header, footer, #assessment-tool > .container > .text-center, #main-report-button-container, #sabsa-nav, .content-section .mt-8 { display: none !important; }
+            #reportModal { position: static; display: block !important; background: none; box-shadow: none; }
+            #reportModal > div { box-shadow: none; max-height: none; width: 100%; max-width: 100%; }
+            #reportOutput { overflow-y: visible; }
+            .report-content { display: block !important; padding: 0 !important; }
+            #infographic-content { page-break-after: always; }
+            #details-content h2 { font-size: 16pt; border-bottom: 2px solid var(--sky-600); padding-bottom: 4px; margin-top: 20px; page-break-before: auto; page-break-inside: avoid; }
+            #details-content .mb-8, #details-content .mb-4 { page-break-inside: avoid; }
+            .chart-container { height: 50vh !important; width: 100% !important; }
         }
     </style>
 </head>
-<body class="bg-white text-gray-800">
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-sky-600 focus:text-white focus:px-4 focus:py-2 focus:rounded">Skip to main content</a>
-    <noscript><div class="bg-yellow-100 text-yellow-900 text-center py-3">JavaScript is required to use the assessment tool and report features.</div></noscript>
+<body class="bg-slate-50 text-slate-800">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-sky-700 text-white px-4 py-2 rounded z-50">Skip to main content</a>
+    <noscript><div class="bg-yellow-200 text-yellow-900 text-center py-3">For the best experience, please enable JavaScript. The interactive assessment tool requires it.</div></noscript>
 
-        <div id="login-screen" class="relative min-h-screen bg-gradient-to-b from-sky-50 via-white to-white text-gray-900 overflow-hidden">
-        <svg class="pointer-events-none absolute inset-0 h-full w-full opacity-40" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <radialGradient id="rg" cx="50%" cy="0%" r="80%">
-                    <stop offset="0%" stop-color="#e0f2fe"/>
-                    <stop offset="100%" stop-color="transparent"/>
-                </radialGradient>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#rg)" />
-        </svg>
-        <div class="relative z-10 max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center">
-            <div class="space-y-6">
-                <div class="flex items-center space-x-3">
-                    <svg class="w-8 h-8 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                    <span class="text-2xl font-bold">SolTech</span>
-                </div>
-                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">Architect and Secure Your Enterprise</h1>
-                <p class="text-gray-600 text-lg">Operate with clarity and control. TOGAF governance meets SABSA security—designed for measurable business outcomes.</p>
-                <div class="grid grid-cols-2 gap-4 max-w-xl">
-                    <div class="rounded-xl p-4 border border-gray-200 bg-white shadow-sm">
-                        <p class="text-sm font-semibold">TOGAF</p>
-                        <p class="text-xs text-gray-600">ADM, governance, building blocks</p>
-                    </div>
-                    <div class="rounded-xl p-4 border border-gray-200 bg-white shadow-sm">
-                        <p class="text-sm font-semibold">SABSA</p>
-                        <p class="text-xs text-gray-600">Business-driven security layers</p>
-                    </div>
-                    <div class="rounded-xl p-4 border border-gray-200 bg-white shadow-sm">
-                        <p class="text-sm font-semibold">Zero Trust</p>
-                        <p class="text-xs text-gray-600">Identity-first, segmented design</p>
-                    </div>
-                    <div class="rounded-xl p-4 border border-gray-200 bg-white shadow-sm">
-                        <p class="text-sm font-semibold">ISO 27001</p>
-                        <p class="text-xs text-gray-600">Control alignment & assurance</p>
-                    </div>
-                </div>
-                <div class="mt-8 flex items-center gap-6 opacity-80">
-                    <img src="https://placehold.co/100x28/6b7280/ffffff?text=ACME" alt="ACME" class="h-6" loading="lazy">
-                    <img src="https://placehold.co/100x28/6b7280/ffffff?text=Globex" alt="Globex" class="h-6" loading="lazy">
-                    <img src="https://placehold.co/100x28/6b7280/ffffff?text=Initech" alt="Initech" class="h-6" loading="lazy">
-                    <img src="https://placehold.co/100x28/6b7280/ffffff?text=Umbrella" alt="Umbrella" class="h-6" loading="lazy">
-                </div>
-            </div>
-            <div class="w-full">
-                <div class="bg-white border border-gray-200 rounded-2xl shadow-xl p-8">
-                    <h2 class="text-2xl md:text-3xl font-bold tracking-tight">Admin Sign-in</h2>
-                    <p class="text-gray-600 text-sm mb-6">Use your admin account to access scoping and estimation. Or continue as a guest.</p>
-                    <form id="loginForm" class="space-y-5">
-                        <div>
-                            <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
-                            <div class="relative mt-1">
-                                <span class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
-                                    <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
-                                </span>
-                                <input id="username" name="username" type="text" autocomplete="username" required class="block w-full rounded-lg border border-gray-300 bg-white pl-10 pr-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 focus:outline-none" placeholder="Enter your username">
-                            </div>
-                        </div>
-                        <div>
-                            <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                            <div class="relative mt-1">
-                                <span class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
-                                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c1.657 0 3-1.343 3-3S13.657 5 12 5 9 6.343 9 8s1.343 3 3 3z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.4 15A7.963 7.963 0 0012 13a7.963 7.963 0 00-7.4 2 2 2 0 00-.6 1.4V19a2 2 0 002 2h12a2 2 0 002-2v-1.6a2 2 0 00-.6-1.4z"/></svg>
-                                </span>
-                                <input id="password" name="password" type="password" autocomplete="current-password" required class="block w-full rounded-lg border border-gray-300 bg-white pl-10 pr-10 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 focus:outline-none" placeholder="Enter your password">
-                                <button type="button" id="togglePassword" class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500 hover:text-gray-700" aria-label="Show password" aria-pressed="false">
-                                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <label class="flex items-center space-x-2">
-                                <input id="rememberMe" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-sky-600 focus:ring-sky-500">
-                                <span class="text-sm text-gray-700">Remember me</span>
-                            </label>
-                            <a href="#" class="text-sm text-sky-600 hover:text-sky-700">Forgot password?</a>
-                        </div>
-                        <p id="loginError" class="text-red-600 text-sm hidden" role="alert" aria-live="assertive">Invalid username or password.</p>
-                        <button type="submit" class="w-full inline-flex items-center justify-center rounded-lg bg-sky-600 px-4 py-2 font-semibold text-white hover:bg-sky-700 focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">
-                            <svg class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
-                            Sign in as Admin
-                        </button>
-                        <button type="button" id="guestLoginBtn" class="w-full rounded-lg border border-gray-300 bg-white px-4 py-2 font-semibold text-gray-900 hover:bg-gray-50">
-                            Continue as Guest
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-        <main id="main-content" class="hidden" role="main">
-        <!-- Header & Nav -->
-        <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-40" role="banner">
-            <div class="container mx-auto px-6">
-                <div class="flex items-center justify-between h-20">
-                    <a href="#" class="flex items-center">
-                        <svg class="w-8 h-8 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                        <span class="ml-3 text-2xl font-bold text-gray-900">SolTech</span>
-                    </a>
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-40 border-b border-slate-200/80" role="banner">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center space-x-3 flex-shrink-0">
+                    <svg class="w-8 h-8 text-sky-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    <span class="text-2xl font-bold text-slate-900 tracking-tight">SolTech</span>
+                </a>
+                <div class="flex items-center">
                     <nav class="hidden md:flex items-center space-x-8" aria-label="Primary">
-                        <a href="#services" class="text-gray-600 hover:text-sky-600 font-medium">Services</a>
-                        <a href="#frameworks" class="text-gray-600 hover:text-sky-600 font-medium">Frameworks</a>
-                        <a href="#methodology" class="text-gray-600 hover:text-sky-600 font-medium">Methodology</a>
-                        <a href="#assessment-tool" class="text-gray-600 hover:text-sky-600 font-medium">Assessment</a>
-                        <a href="#trust-center" class="text-gray-600 hover:text-sky-600 font-medium">Trust Center</a>
-                        <a href="/use-cases/cloud-security-architecture.html" class="text-gray-600 hover:text-sky-600 font-medium">Use Cases</a>
-                        <a href="#contact" class="text-gray-600 hover:text-sky-600 font-medium">Contact</a>
-                        <button id="signOutBtn" class="text-gray-600 hover:text-sky-600 font-medium">Sign out</button>
+                        <a href="#services" class="text-slate-600 hover:text-sky-700 font-medium transition-colors">Services</a>
+                        <a href="portfolio.html" class="text-slate-600 hover:text-sky-700 font-medium transition-colors">Portfolio</a>
+                        <a href="#methodology" class="text-slate-600 hover:text-sky-700 font-medium transition-colors">Methodology</a>
+                        <a href="#assessment-tool" class="text-slate-600 hover:text-sky-700 font-medium transition-colors">Assessment</a>
+                        <a href="#contact" class="text-slate-600 hover:text-sky-700 font-medium transition-colors">Contact</a>
                     </nav>
-                    <a href="#assessment-tool" class="hidden md:inline-block bg-sky-600 text-white font-bold py-2 px-6 rounded-lg shadow-md hover:bg-sky-700 transition-transform hover:scale-105">
-                        Free Consultation
-                    </a>
-                </div>
-            </div>
-        </header>
-
-        <!-- Hero Section -->
-        <div class="hero-bg text-gray-900">
-            <div class="container mx-auto px-6 py-24 text-center relative z-10">
-                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight">Enterprise Architecture for the Modern Business</h1>
-                <p class="mt-6 text-lg md:text-xl max-w-3xl mx-auto text-gray-600">We provide the strategic vision and technical expertise to build flexible, secure, and future-proof architectures that drive your transformation journeys.</p>
-                <div class="mt-8 flex justify-center space-x-4">
-                    <a href="#assessment-tool" class="inline-block bg-sky-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-sky-700 transition-transform hover:scale-105">
-                        Start Free Assessment
-                    </a>
-                     <a href="#services" class="inline-block bg-white text-sky-600 font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-gray-100 transition-transform hover:scale-105">
-                        Explore Services
-                    </a>
+                    <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-slate-600 hover:bg-slate-100 ml-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
                 </div>
             </div>
         </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-white shadow-lg">
+            <a href="#services" class="block py-3 px-6 text-slate-600 hover:bg-slate-50 hover:text-sky-700 font-medium">Services</a>
+            <a href="portfolio.html" class="block py-3 px-6 text-slate-600 hover:bg-slate-50 hover:text-sky-700 font-medium">Portfolio</a>
+            <a href="#methodology" class="block py-3 px-6 text-slate-600 hover:bg-slate-50 hover:text-sky-700 font-medium">Methodology</a>
+            <a href="#assessment-tool" class="block py-3 px-6 text-slate-600 hover:bg-slate-50 hover:text-sky-700 font-medium">Assessment</a>
+            <a href="#contact" class="block py-3 px-6 text-slate-600 hover:bg-slate-50 hover:text-sky-700 font-medium">Contact</a>
+        </div>
+    </header>
+
+    <main id="main-content" role="main">
+        <section class="hero-gradient text-slate-900">
+            <div class="container mx-auto px-6 py-24 md:py-32 text-center relative z-10">
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight tracking-tighter">From Architectural Complexity to Business Clarity.</h1>
+                <p class="section-subtitle">We translate enterprise ambition into secure, scalable, and resilient technology architecture. By integrating TOGAF for structure and SABSA for security, we build the platforms that power your future.</p>
+                <div class="mt-10 flex justify-center space-x-4">
+                    <a href="#assessment-tool" class="btn-primary">Assess Your Architecture</a>
+                    <a href="#methodology" class="btn-secondary">Learn Our Method</a>
+                </div>
+            </div>
+        </section>
         
-        <!-- Trusted By Section -->
-        <div class="py-12 bg-white">
+        <section class="py-16 bg-white border-y border-slate-200/80">
             <div class="container mx-auto px-6">
-                <p class="text-center text-gray-500 font-medium">Trusted by leading organizations</p>
-                <div class="flex justify-center items-center mt-6 space-x-8 md:space-x-12 grayscale opacity-60">
-                    <p class="text-2xl font-bold">InnovateCorp</p>
-                    <p class="text-2xl font-bold">QuantumLeap</p>
-                    <p class="text-2xl font-bold">Nexus Global</p>
-                    <p class="text-2xl font-bold">Pinnacle Inc.</p>
+                <p class="text-center text-slate-500 font-medium tracking-wider uppercase">Powering strategy for world-class organizations</p>
+                <div class="mt-8 flex justify-around items-center grayscale opacity-70">
+                    <img src="https://placehold.co/140x40/f1f5f9/475569?text=InnovateCorp" alt="InnovateCorp" class="h-8" loading="lazy">
+                    <img src="https://placehold.co/140x40/f1f5f9/475569?text=QuantumLeap" alt="QuantumLeap" class="h-8" loading="lazy">
+                    <img src="https://placehold.co/140x40/f1f5f9/475569?text=Nexus+Global" alt="Nexus Global" class="h-8" loading="lazy">
+                    <img src="https://placehold.co/140x40/f1f5f9/475569?text=Pinnacle" alt="Pinnacle Inc." class="h-8" loading="lazy">
+                    <img src="https://placehold.co/140x40/f1f5f9/475569?text=EthioTel" alt="Ethio Telecom" class="h-8" loading="lazy">
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Services Section -->
-        <div id="services" class="py-20 bg-gray-50">
+        <section id="services" class="py-20 md:py-28 bg-slate-50">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">What Sets Us Apart</h2>
-                    <p class="mt-4 text-lg text-gray-600">A holistic approach to enterprise architecture and security.</p>
+                <div class="text-center mb-16">
+                    <h2 class="section-title">Achieve Strategic Outcomes</h2>
+                    <p class="section-subtitle">Our expertise translates into tangible business value across your enterprise.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Service Card 1 -->
-                    <div class="service-card bg-white p-8 rounded-xl shadow-md text-center">
-                        <div class="bg-sky-100 text-sky-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-6">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0v-4a2 2 0 012-2h6a2 2 0 012 2v4m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5m0 16v-2m-6-14v-2m-6 16v-2"></path></svg>
+                    <div class="service-card bg-white p-8 rounded-2xl text-center">
+                        <div class="bg-sky-100 text-sky-700 rounded-xl h-16 w-16 flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
                         </div>
-                        <h3 class="text-xl font-bold mb-2">TOGAF Enterprise Architecture</h3>
-                        <p class="text-gray-600">Implement a structured approach to organize and govern your IT architecture, ensuring it aligns with business goals.</p>
+                        <h3 class="text-xl font-bold mb-2">De-risk Digital Transformation</h3>
+                        <p class="text-slate-600">Build a resilient architectural foundation that supports growth and manages technical debt, ensuring your transformation journey is secure and successful.</p>
                     </div>
-                    <!-- Service Card 2 -->
-                    <div class="service-card bg-white p-8 rounded-xl shadow-md text-center">
-                        <div class="bg-sky-100 text-sky-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-6">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    <div class="service-card bg-white p-8 rounded-2xl text-center">
+                        <div class="bg-sky-100 text-sky-700 rounded-xl h-16 w-16 flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0v-4a2 2 0 012-2h6a2 2 0 012 2v4m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5m0 16v-2m-6-14v-2m-6 16v-2"></path></svg>
                         </div>
-                        <h3 class="text-xl font-bold mb-2">SABSA Security Architecture</h3>
-                        <p class="text-gray-600">Develop a business-driven security architecture that manages risk and enables new business opportunities securely.</p>
+                        <h3 class="text-xl font-bold mb-2">Align Security with Business</h3>
+                        <p class="text-slate-600">Embed security into the fabric of your enterprise with our business-driven SABSA approach, turning security from a cost center into a business enabler.</p>
                     </div>
-                    <!-- Service Card 3 -->
-                    <div class="service-card bg-white p-8 rounded-xl shadow-md text-center">
-                        <div class="bg-sky-100 text-sky-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-6">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    <div class="service-card bg-white p-8 rounded-2xl text-center">
+                        <div class="bg-sky-100 text-sky-700 rounded-xl h-16 w-16 flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                         </div>
-                        <h3 class="text-xl font-bold mb-2">Gap Analysis & Roadmap</h3>
-                        <p class="text-gray-600">Identify the gaps between your current and target architectures and create a prioritized, actionable roadmap for transformation.</p>
-                    </div>
-                    <!-- Service Card 4 -->
-                    <div class="service-card bg-white p-8 rounded-xl shadow-md text-center">
-                        <div class="bg-sky-100 text-sky-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-6">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-5.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-5.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222 4 2.222V20M1 12l11 6 11-6"></path></svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Training & Research</h3>
-                        <p class="text-gray-600">Custom training programs and research on Cybersecurity, Enterprise Architecture, and emerging technology trends.</p>
-                    </div>
-                    <!-- Service Card 5 -->
-                    <div class="service-card bg-white p-8 rounded-xl shadow-md text-center">
-                        <div class="bg-sky-100 text-sky-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-6">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"></path></svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Startup Pitch Decks</h3>
-                        <p class="text-gray-600">Craft compelling, visually attractive pitch decks that clearly communicate your vision and technical architecture to investors.</p>
-                    </div>
-                    <!-- Service Card 6 -->
-                    <div class="service-card bg-white p-8 rounded-xl shadow-md text-center">
-                        <div class="bg-sky-100 text-sky-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-6">
-                           <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Web App Development</h3>
-                        <p class="text-gray-600">Build robust, scalable, and secure websites and web applications that serve as the foundation of your digital presence.</p>
+                        <h3 class="text-xl font-bold mb-2">Accelerate Delivery & Innovation</h3>
+                        <p class="text-slate-600">Leverage a clear, governed architecture with reusable patterns to speed up development cycles, reduce rework, and foster innovation securely.</p>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
         
-        <!-- Assessment Tool Section -->
-        <div id="assessment-tool" class="py-20">
+        <section id="assessment-tool" class="py-20 md:py-28 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">Enterprise Architecture Assessment Tool</h2>
-                    <p class="mt-4 text-lg text-gray-600">Answer the questions below to generate a high-level maturity report.</p>
+                    <h2 class="section-title">Your Interactive Architecture Assessment</h2>
+                    <p class="section-subtitle">In 10 minutes, gain a high-level view of your enterprise architecture maturity. This tool, built on SABSA and TOGAF principles, provides an instant, confidential report to benchmark your capabilities.</p>
                 </div>
-                <main>
-                    <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg mb-8">
-                        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2 tracking-tight">Assessment Framework Explorer</h2>
-                        <p class="text-gray-600 mb-6">Click on a section to explore and answer the questions. This model covers the full lifecycle from business strategy to operational maturity and commercial agreement.</p>
-                        <div id="sabsa-nav" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-                            <!-- Navigation sections will be injected here by JS -->
-                        </div>
-                    </div>
-                    
-                    <div id="content-display" class="bg-white p-6 md:p-8 rounded-2xl shadow-lg min-h-[30rem]">
-                        <!-- Content Sections will be injected here by JS -->
-                    </div>
-
-                    <div class="mt-8 text-center" id="main-report-button-container">
-                        <button id="generateReportBtn" class="bg-sky-600 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:bg-sky-700 transition-transform hover:scale-105">
-                            Generate Assessment Report
-                        </button>
-                    </div>
-                </main>
+                <div id="assessment-app">
+                    <!-- App will be rendered here -->
+                </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Methodology Section -->
-        <section id="methodology" class="py-20 bg-gray-50">
+        <section id="methodology" class="py-20 md:py-28 bg-slate-900 text-white">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">Methodology: TOGAF × SABSA Alignment</h2>
-                    <p class="mt-4 text-lg text-gray-600">We align business strategy, risk, and delivery by mapping TOGAF ADM to SABSA layers, leveraging TOGAF Series Guides, Value Streams, and Capability-based planning.</p>
+                <div class="text-center mb-16">
+                    <h2 class="section-title text-white">Our Integrated Methodology</h2>
+                    <p class="section-subtitle text-slate-400">We don't just use frameworks; we integrate them. This synergy provides a 360° view that connects business strategy to secure, operational reality.</p>
                 </div>
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    <div class="bg-white p-6 rounded-xl shadow border">
-                        <h3 class="font-bold text-sky-700">Strategy & Governance</h3>
-                        <p class="mt-2 text-gray-700">TOGAF 10 Architecture Vision, Principles, Governance and Value Streams with SABSA Contextual/Conceptual security strategy.</p>
+                <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-5 items-center gap-8 text-center">
+                    <div class="md:col-span-2">
+                        <h3 class="text-3xl font-bold text-sky-400">TOGAF</h3>
+                        <p class="mt-2 text-slate-300">Provides the "what" and "how"—the structured process for architecture development, governance, and management (ADM).</p>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow border">
-                        <h3 class="font-bold text-sky-700">Design & Traceability</h3>
-                        <p class="mt-2 text-gray-700">Logical services and information flows mapped to SABSA Logical, with traceability to business attributes.</p>
+                    <div class="text-5xl font-black text-slate-700">+</div>
+                    <div class="md:col-span-2">
+                        <h3 class="text-3xl font-bold text-sky-400">SABSA</h3>
+                        <p class="mt-2 text-slate-300">Provides the "why"—the business-driven, risk-based approach to ensure security is an intrinsic part of the design.</p>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow border">
-                        <h3 class="font-bold text-sky-700">Build & Operate</h3>
-                        <p class="mt-2 text-gray-700">Opportunities & Solutions through Migration Planning, implemented as SABSA Physical/Component and Service Ops.</p>
+                </div>
+                 <div class="mt-12 text-center">
+                    <div class="inline-block bg-sky-400/10 text-sky-300 font-semibold py-3 px-6 rounded-lg">
+                        Result: A robust, secure, and business-aligned Enterprise Architecture that enables and protects value.
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="platforms" class="py-20 md:py-28 bg-slate-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="section-title">Frameworks & Platforms We Master</h2>
+                    <p class="section-subtitle">Our guidance is grounded in industry-leading standards and tooling to ensure your architecture is both strategic and executable.</p>
+                </div>
+                <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-slate-800">Bizzdesign</h3>
+                        <p class="text-slate-500 mt-1">For collaborative enterprise architecture modeling and analysis.</p>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-slate-800">ArchiMate</h3>
+                        <p class="text-slate-500 mt-1">The open standard language for architecture modeling.</p>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-slate-800">NIST CSF</h3>
+                        <p class="text-slate-500 mt-1">For cybersecurity risk management and control alignment.</p>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-slate-800">ISO 27001</h3>
+                        <p class="text-slate-500 mt-1">For information security management systems (ISMS).</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Frameworks Section -->
-        <section id="frameworks" class="py-20 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">Frameworks We Use</h2>
-                    <p class="mt-4 text-lg text-gray-600">We anchor delivery on globally recognized standards so strategy, risk, and delivery stay aligned.</p>
-                </div>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100">
-                        <h3 class="text-2xl font-bold text-sky-700">TOGAF</h3>
-                        <p class="mt-2 text-gray-600">TOGAF Standard, 10th Edition: modular usage, ADM, principles, and governance across Business, Data, Application, and Technology.</p>
-                        <ul class="mt-4 space-y-2 text-gray-700 list-disc pl-5">
-                            <li>Modular guidance with TOGAF Series Guides</li>
-                            <li>Architecture Vision through Opportunities & Solutions</li>
-                            <li>Architecture Repository, Content Metamodel, and Building Blocks</li>
-                            <li>Architecture Contracts, Compliance, and Governance</li>
-                        </ul>
-                    </div>
-                    <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100">
-                        <h3 class="text-2xl font-bold text-sky-700">SABSA</h3>
-                        <p class="mt-2 text-gray-600">Business-driven security architecture across the Contextual, Conceptual, Logical, Physical, and Component layers.</p>
-                        <ul class="mt-4 space-y-2 text-gray-700 list-disc pl-5">
-                            <li>Business Attributes Profiles, Control Objectives, and risk-based traceability</li>
-                            <li>Contextual → Conceptual → Logical → Physical → Component mapping</li>
-                            <li>Assurance, metrics, and integration with enterprise change and operations</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Ethiopian Testimonial Section -->
-        <div class="py-20 bg-gray-50">
+        <footer id="contact" class="py-16 bg-slate-800 text-white" role="contentinfo">
             <div class="container mx-auto px-6 text-center">
-                 <img src="https://placehold.co/100x40/cccccc/cccccc?text=Ethio" alt="Ethio Telecom Logo" class="mx-auto mb-6 grayscale opacity-60" loading="lazy">
-                <p class="text-xl md:text-2xl font-medium max-w-3xl mx-auto text-gray-700">"Working with SolTech allowed us to build a scalable and secure architecture, which was critical for our national digital expansion. Their deep understanding of both global standards and local context is unmatched."</p>
-                <p class="mt-6 font-bold text-lg text-gray-900">Abebe Kebede, Chief Enterprise Architect at Ethio Telecom</p>
-            </div>
-        </div>
-        
-        <!-- Trust Center -->
-        <section id="trust-center" class="py-20 bg-gray-50">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">Trust Center</h2>
-                    <p class="mt-4 text-lg text-gray-600">Security, privacy, and compliance commitments to safeguard your data and operations.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-white p-6 rounded-xl shadow border">
-                        <h3 class="font-bold text-sky-700">Security</h3>
-                        <ul class="mt-3 text-gray-700 space-y-1 list-disc pl-5">
-                            <li>Zero Trust design principles</li>
-                            <li>Encryption in transit and at rest guidance</li>
-                            <li>Secure SDLC and threat modeling</li>
-                        </ul>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow border">
-                        <h3 class="font-bold text-sky-700">Privacy</h3>
-                        <ul class="mt-3 text-gray-700 space-y-1 list-disc pl-5">
-                            <li>Data minimization and classification</li>
-                            <li>Retention and subject rights workflows</li>
-                            <li>Privacy-by-design reviews</li>
-                        </ul>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow border">
-                        <h3 class="font-bold text-sky-700">Compliance</h3>
-                        <ul class="mt-3 text-gray-700 space-y-1 list-disc pl-5">
-                            <li>ISO 27001 aligned controls</li>
-                            <li>NIST CSF mapping and CMMC readiness</li>
-                            <li>Regulatory assessments (GDPR, HIPAA)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Privacy Policy -->
-        <section id="privacy" class="py-20 bg-white">
-            <div class="container mx-auto px-6 max-w-4xl">
-                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">Privacy Policy</h2>
-                <p class="mt-4 text-gray-700">We collect only the information necessary to deliver our services. Assessment responses entered on this site are processed in your browser and are not transmitted unless you explicitly share them. For inquiries or data rights requests, contact us at <a href="mailto:sol19.b@gmail.com" class="text-indigo-600 underline">sol19.b@gmail.com</a>.</p>
-            </div>
-        </section>
-
-        <!-- Terms of Service -->
-        <section id="terms" class="py-20 bg-gray-50">
-            <div class="container mx-auto px-6 max-w-4xl">
-                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">Terms of Service</h2>
-                <p class="mt-4 text-gray-700">The content and tools provided are for informational purposes and do not constitute legal or compliance advice. Use at your own discretion. Engagement terms, deliverables, and SLAs are defined in a separate commercial agreement.</p>
-            </div>
-        </section>
-        
-        <footer id="contact" class="py-12 bg-gray-900 text-white" role="contentinfo">
-            <div class="container mx-auto px-6 text-center">
-                <h3 class="font-bold text-2xl mb-4">SolTech Enterprise Architecture Consultancy</h3>
-                <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6 text-gray-400" aria-label="Contact Links">
-                    <a href="mailto:sol19.b@gmail.com" class="hover:text-sky-400 flex items-center">
+                <h3 class="font-bold text-3xl mb-4">Ready to build with clarity?</h3>
+                <p class="text-slate-400 max-w-2xl mx-auto mb-8">Let's discuss how a strategic approach to enterprise architecture can unlock your organization's potential. Reach out for a confidential consultation.</p>
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6 text-slate-300">
+                    <a href="mailto:solelectr@gmail.com" class="hover:text-sky-400 flex items-center">
                         <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
-                        sol19.b@gmail.com
+                        solelectr@gmail.com
                     </a>
-                    <a href="tel:+251911506932" class="hover:text-sky-400 flex items-center">
-                         <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
-                        +251911506932
-                    </a>
-                    <a href="https://www.linkedin.com/in/solomonbaye" target="_blank" rel="noopener noreferrer" class="hover:text-sky-400 flex items-center">
+                    <a href="https://www.linkedin.com/in/solomon-baye-security" target="_blank" rel="noopener noreferrer" class="hover:text-sky-400 flex items-center">
                         <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.206v4.248H8.014V8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.718zM5.337 7.433a1.06 1.06 0 01-.99-1.06c0-.584.42-.99 1.03-1.06.6.07.99.476.99 1.06 0 .584-.39.99-1.03 1.06zM6.638 8.59H3.976v7.748h2.662V8.59zM17.638 2H2.362C1.013 2 0 3.013 0 4.362v11.276C0 16.987 1.013 18 2.362 18h15.276C18.987 18 20 16.987 20 15.638V4.362C20 3.013 18.987 2 17.638 2z" clip-rule="evenodd"></path></svg>
-                        LinkedIn
+                        LinkedIn Profile
                     </a>
                 </div>
-                <div class="mt-6 text-sm text-gray-400">
-                    <a href="#privacy" class="hover:text-indigo-400">Privacy Policy</a>
-                    <span class="mx-2">•</span>
-                    <a href="#terms" class="hover:text-indigo-400">Terms of Service</a>
-                </div>
-                <p class="mt-2 text-sm text-gray-500">&copy; 2025 SolTech Enterprise Architecture Consultancy.</p>
+                <p class="mt-12 text-sm text-slate-500">&copy; 2025 SolTech Strategic Architecture. All Rights Reserved.</p>
             </div>
         </footer>
     </main>
 
-    <!-- Cookie Consent -->
-    <div id="cookie-consent" class="fixed bottom-4 inset-x-0 px-4 z-50 hidden">
-        <div class="max-w-5xl mx-auto bg-white border border-gray-200 shadow-xl rounded-xl p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-            <p class="text-sm text-gray-700">We use essential cookies to enable site functionality and analytics to improve your experience. By clicking Accept, you consent to our use of cookies.</p>
-            <div class="flex items-center gap-2">
-                <button id="cookie-decline" class="px-4 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50">Decline</button>
-                <button id="cookie-accept" class="px-4 py-2 rounded-lg bg-sky-600 text-white hover:bg-sky-700">Accept</button>
-            </div>
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-consent" class="fixed bottom-4 inset-x-0 px-4 z-50 hidden no-print">
+        <div class="max-w-3xl mx-auto bg-slate-800 text-white border border-slate-700 shadow-2xl rounded-lg p-4 flex items-center justify-between gap-4">
+            <p class="text-sm text-slate-300">We use local storage to save your assessment progress. By continuing, you agree to this. See our <a href="#" class="underline hover:text-white">privacy policy</a>.</p>
+            <button id="cookie-accept" class="px-5 py-2 rounded-md bg-sky-700 hover:bg-sky-600 text-white font-semibold whitespace-nowrap">Accept</button>
         </div>
     </div>
 
     <!-- Report Modal -->
-    <div id="reportModal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center p-4 z-50 hidden no-print" role="dialog" aria-modal="true" aria-labelledby="reportTitle">
-        <div class="bg-white rounded-lg shadow-2xl w-full max-w-6xl max-h-[90vh] flex flex-col">
-            <h1 id="reportTitle" class="sr-only">Assessment Report</h1>
-            <div class="p-4 border-b border-gray-200 flex justify-between items-center no-print">
-                <div class="flex border border-gray-200 rounded-lg p-1" role="tablist" aria-label="Report Sections">
-                    <button data-tab="infographic" class="report-tab font-semibold py-2 px-4 rounded-md text-sm" role="tab" aria-selected="false" tabindex="-1">Infographic Summary</button>
-                    <button data-tab="details" class="report-tab font-semibold py-2 px-4 rounded-md text-sm" role="tab" aria-selected="false" tabindex="-1">Detailed Report</button>
+    <div id="reportModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50 hidden no-print" role="dialog" aria-modal="true" aria-labelledby="reportTitle">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-6xl max-h-[90vh] flex flex-col">
+            <h1 id="reportTitle" class="sr-only">Architecture Assessment Report</h1>
+            <div class="p-4 border-b border-slate-200 flex justify-between items-center no-print">
+                <div class="flex border border-slate-200 rounded-lg p-1" role="tablist" aria-label="Report Sections">
+                    <button data-tab="infographic" class="report-tab font-medium py-2 px-4 rounded-md text-sm" role="tab" aria-selected="false" tabindex="-1">Dashboard</button>
+                    <button data-tab="details" class="report-tab font-medium py-2 px-4 rounded-md text-sm" role="tab" aria-selected="false" tabindex="-1">Detailed Findings</button>
                 </div>
                 <div>
-                    <button id="printReportBtn" class="bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-lg mr-2 hover:bg-gray-300 transition-colors">Print</button>
+                    <button id="printReportBtn" class="bg-slate-200 text-slate-800 font-bold py-2 px-4 rounded-lg mr-2 hover:bg-slate-300 transition-colors">Print</button>
                     <button id="closeReportBtn" class="bg-red-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-red-700 transition-colors" aria-label="Close report dialog">Close</button>
                 </div>
             </div>
             <div id="reportOutput" class="overflow-y-auto">
-                 <!-- Infographic Report -->
-                <div id="infographic-content" class="report-content p-8">
-                    <!-- This will be populated by JS -->
-                </div>
-                <!-- Detailed Text Report -->
-                <div id="details-content" class="report-content p-8">
-                     <!-- This will be populated by JS -->
-                </div>
+                <div id="infographic-content" class="report-content p-6 md:p-8"></div>
+                <div id="details-content" class="report-content p-6 md:p-8"></div>
             </div>
         </div>
     </div>
 
-
     <script>
-        let isAdmin = false;
-        let maturityChart = null;
+    // --- SolTech Interactive Assessment Application ---
 
+    document.addEventListener('DOMContentLoaded', () => {
+        
+        // --- 1. STATE MANAGEMENT ---
         const assessmentData = [
-            {
-                id: 'contextual',
-                title: 'Business Context & Drivers',
-                subtitle: 'The "Why"',
-                layer: 'SABSA: Contextual Layer',
-                description: "Understanding the business goals, drivers, and critical assets that require protection.",
-                questions: [
-                    { q: "What are the primary business objectives for the next 1-3 years (e.g., increase market share, launch new products, expand geographically)?", a: "This defines the mission that the architecture must support. Security and IT objectives must be traceable back to these goals.", type: 'open', response: '' },
-                    { q: "What are the most critical business processes for your organization's success (e.g., online sales, manufacturing, customer service)?", a: "Identifying these 'crown jewel' processes helps prioritize protection efforts and investments.", type: 'open', response: '' },
-                    { q: "What is your organization's tolerance for risk regarding security incidents (e.g., financial loss, reputational damage, operational downtime)?", a: "This directly influences the level of security investment and the stringency of controls.", type: 'multiple-choice', options: ['Very Low (Risk Averse)', 'Low', 'Moderate', 'High', 'Very High (Risk Seeking)'], response: '' },
-                    { q: "Who are the key stakeholder groups and decision-makers for architecture and security?", a: "Clear stakeholder mapping aids governance and speeds decisions.", type: 'open', response: '' },
-                    { q: "Which business assets and data categories are most critical (e.g., PII, IP, financial records)?", a: "Asset and data criticality underpins classification and control strength.", type: 'open', response: '' },
-                    { q: "Which regulatory or contractual requirements materially impact your architecture?", a: "External obligations (e.g., GDPR, HIPAA, PCI DSS) shape design constraints and controls.", type: 'multiple-choice', options: ['None', 'Industry-specific (e.g., HIPAA, PCI)', 'Regional privacy (e.g., GDPR)', 'Multiple jurisdictions/complex'], response: '' },
-                ]
-            },
-            {
-                id: 'conceptual',
-                title: 'Security Strategy & Concepts',
-                subtitle: 'The "What"',
-                layer: 'SABSA: Conceptual Layer',
-                description: "Defining the high-level security strategy, policies, and conceptual design.",
-                questions: [
-                    { q: "What is the primary motivation for your security program?", a: "This reveals the core philosophy: is security seen as a compliance checkbox, a risk mitigator, or a business enabler?", type: 'multiple-choice', options: ['Compliance-Driven', 'Risk-Driven', 'Threat-Driven', 'Business-Enablement-Driven'], response: '' },
-                    { q: "How do you decide which security controls are necessary and which are not? Is this decision-making process documented?", a: "This is a key test of a systematic approach to control selection, rather than an ad-hoc one.", type: 'multiple-choice', options: ['Yes, formally documented and governed', 'An informal process exists', 'Decisions are ad-hoc', 'I don\'t know'], response: '' },
-                    { q: "How is security integrated into new projects or system development lifecycles?", a: "This determines if security is 'built-in' from the start or 'bolted-on' as an afterthought, which is far more costly.", type: 'multiple-choice', options: ['Security is involved from the concept/planning phase', 'Security is engaged during design/development', 'Security is engaged for testing before deployment', 'Security is involved only after deployment'], response: '' },
-                    { q: "Which control frameworks guide your program?", a: "Common baselines improve consistency and auditability.", type: 'multiple-choice', options: ['ISO 27001/27002', 'NIST CSF/800-53', 'CIS Controls', 'Mixture/Other', 'None'], response: '' },
-                    { q: "How is risk appetite expressed and translated into control objectives?", a: "Linking risk appetite to controls ensures proportionality.", type: 'open', response: '' },
-                    { q: "Do you have documented architecture principles (security and EA) that guide decisions?", a: "Principles enable consistent trade-offs.", type: 'multiple-choice', options: ['Yes, current and enforced', 'Yes, but outdated', 'Informal only', 'No'], response: '' },
-                ]
-            },
-            {
-                id: 'logical',
-                title: 'Security Services & Design',
-                subtitle: 'The "How"',
-                layer: 'SABSA: Logical Layer',
-                description: "Designing the abstract security services needed to meet strategic goals, independent of specific technologies.",
-                questions: [
-                    { q: "What is your high-level approach to managing user identities and controlling access to information?", a: "This describes the fundamental model for ensuring the right people have the right access.", type: 'multiple-choice', options: ['Centralized (e.g., single corporate directory)', 'Federated (e.g., using partner identities)', 'Decentralized / Self-Sovereign', 'A hybrid approach'], response: '' },
-                    { q: "How do you logically separate your network and applications to limit the impact of a potential breach?", a: "Effective segmentation contains threats and prevents minor incidents from becoming major crises.", type: 'multiple-choice', options: ['No formal segmentation', 'Basic network zones (e.g., DMZ, Internal)', 'Micro-segmentation based on application/workload', 'Zero-trust architecture principles are applied'], response: '' },
-                    { q: "Do you apply a data classification scheme that drives protective controls?", a: "Classification must drive encryption, access, and monitoring.", type: 'multiple-choice', options: ['Yes, organization-wide', 'Partially, by function or system', 'Informal', 'No'], response: '' },
-                    { q: "How are third-party and partner integrations secured logically?", a: "Design choices for APIs and B2B links determine risk.", type: 'multiple-choice', options: ['Point-to-point tokens/keys', 'Gateway/API mgmt with centralized policies', 'Zero trust brokered access', 'Ad-hoc/on a case basis'], response: '' },
-                    { q: "How is privileged access managed logically across infrastructure and apps?", a: "Logical PAM models reduce blast radius.", type: 'open', response: '' },
-                ]
-            },
-            {
-                id: 'physical',
-                title: 'Technology & Implementation',
-                subtitle: 'The "With What"',
-                layer: 'SABSA: Physical Layers',
-                description: "Mapping the logical design to specific, real-world technologies and components.",
-                questions: [
-                    { q: "Where are your critical business applications primarily hosted?", a: "The physical or virtual location of assets is key to applying the correct protections.", type: 'multiple-choice', options: ['Primarily On-Premise Data Centers', 'Primarily a single Public Cloud (e.g., AWS, Azure, GCP)', 'Hybrid Cloud (Mix of On-Premise and Public Cloud)', 'Multi-Cloud (Using multiple Public Cloud providers)'], response: '' },
-                    { q: "How well are your different security tools integrated to work together?", a: "A collection of unintegrated tools is not an architecture. Integration enables correlation and automated response.", type: 'multiple-choice', options: ['Tools operate in silos with no integration', 'Some point-to-point integrations exist', 'A central platform (e.g., SIEM/SOAR) provides significant integration', 'Highly automated and integrated ecosystem'], response: '' },
-                    { q: "Do you operate CSPM/CWPP or equivalent cloud-native controls?", a: "Cloud security posture needs continuous assurance.", type: 'multiple-choice', options: ['Yes, mature coverage', 'Partially', 'Evaluating', 'No'], response: '' },
-                    { q: "What is your endpoint management coverage (EDR/MDM)?", a: "Endpoints remain a primary entry point.", type: 'multiple-choice', options: ['>95%', '70–95%', '30–70%', '<30%'], response: '' },
-                    { q: "Any data residency constraints for specific workloads?", a: "Residency may constrain providers/regions.", type: 'open', response: '' },
-                ]
-            },
-            {
-                id: 'service',
-                title: 'Security Operations & Governance',
-                subtitle: 'The "Ongoing How"',
-                layer: 'SABSA: Service Management',
-                description: "Managing, operating, and governing the security architecture on an ongoing basis.",
-                questions: [
-                    { q: "How does your organization monitor for and respond to security threats?", a: "This assesses the core of your detection and response capabilities.", type: 'multiple-choice', options: ['No formal monitoring / Ad-hoc response', 'In-house team, business hours only', 'In-house team, 24/7', 'Co-managed with a service provider', 'Fully outsourced to a service provider'], response: '' },
-                    { q: "How frequently are security policies and procedures formally reviewed and updated to keep pace with business and threat changes?", a: "This tests for a living, breathing governance framework rather than a static one.", type: 'multiple-choice', options: ['Annually or more frequently', 'Every 2-3 years', 'Rarely / on an ad-hoc basis', 'Never'], response: '' },
-                    { q: "What is the cadence and coverage of vulnerability management?", a: "Regular scanning and remediation reduce exposure window.", type: 'multiple-choice', options: ['Weekly with SLAs', 'Monthly with SLAs', 'Quarterly/ad-hoc', 'None'], response: '' },
-                    { q: "How often are backup and disaster recovery plans tested?", a: "Testing ensures resilient recovery.", type: 'multiple-choice', options: ['Quarterly+', 'Semi-annually', 'Annually', 'Rarely/Never'], response: '' },
-                    { q: "Is there a formal change management process that integrates security review?", a: "Change control reduces operational risk.", type: 'multiple-choice', options: ['Yes, CAB with security gate', 'Yes, informal', 'No'], response: '' },
-                ]
-            },
-            {
-                id: 'togaf',
-                title: 'TOGAF Enterprise Architecture',
-                subtitle: 'The "Structure"',
-                layer: 'TOGAF: ADM & Governance',
-                description: "Assessing the maturity of the overall Enterprise Architecture practice.",
-                questions: [
-                    { q: "Does the organization have a defined set of guiding principles for making architecture decisions?", a: "Architecture principles are the foundation for EA governance and decision-making.", type: 'multiple-choice', options: ['Yes, formally documented and governed', 'Yes, but they are informal or outdated', 'Only for specific domains (e.g., technology)', 'No'], response: '' },
-                    { q: "Is there a formal group (e.g., an Architecture Review Board) responsible for governing architectural decisions?", a: "A formal governance body is a key component for ensuring architectural consistency and alignment.", type: 'multiple-choice', options: ['Yes, with a formal charter and regular meetings', 'Yes, but it operates informally', 'No, governance is ad-hoc', 'I don\'t know'], response: '' },
-                    { q: "How are architectural decisions communicated to and enforced on implementation projects?", a: "This is a critical test of the architecture's real-world impact and compliance.", type: 'multiple-choice', options: ['Formal architecture compliance reviews are mandatory', 'Architecture contracts are used', 'Informal guidance and consultation is provided', 'There is little to no enforcement'], response: '' },
-                    { q: "Is there an Architecture Repository with standards, patterns, and building blocks?", a: "A well-curated repository accelerates delivery and improves consistency.", type: 'multiple-choice', options: ['Yes, curated and used', 'Exists but underused', 'Informal collections', 'None'], response: '' },
-                    { q: "To what extent are reusable architecture building blocks applied across programs?", a: "Reuse improves speed and quality.", type: 'multiple-choice', options: ['Systematic reuse', 'Occasional reuse', 'Rarely', 'Never'], response: '' },
-                    { q: "Are migration planning and architecture roadmaps governed and tracked?", a: "Roadmaps translate vision into execution.", type: 'multiple-choice', options: ['Yes, governed with KPIs', 'Partially', 'Ad-hoc', 'No'], response: '' },
-                ]
-            },
-            {
-                id: 'capability',
-                title: 'Capability & Maturity',
-                subtitle: 'The "How Well"',
-                layer: 'Framework-Aligned Assessment',
-                description: "Assess the maturity of your key capabilities. Rate each on a scale of 1 (Ad-Hoc/Initial) to 5 (Optimizing).",
-                questions: [
-                    { q: "Security Governance & Management", a: "How well-defined and effective are your security strategy, policies, and management systems?", type: 'rating', options: ['1','2','3','4','5'], response: '' },
-                    { q: "Risk Management", a: "How mature is your process for identifying, assessing, and mitigating security risks?", type: 'rating', options: ['1','2','3','4','5'], response: '' },
-                    { q: "Identity & Access Management", a: "How effectively do you manage who has access to what, and are privileges regularly reviewed?", type: 'rating', options: ['1','2','3','4','5'], response: '' },
-                    { q: "Data Security", a: "How well is your sensitive data protected through measures like classification, encryption, and loss prevention?", type: 'rating', options: ['1','2','3','4','5'], response: '' },
-                    { q: "Incident Response", a: "How prepared is your organization to detect, respond to, and recover from a security incident?", type: 'rating', options: ['1','2','3','4','5'], response: '' },
-                    { q: "Third-Party Risk Management", a: "How effectively do you manage the security risks associated with your vendors and partners?", type: 'rating', options: ['1','2','3','4','5'], response: '' },
-                    { q: "Vulnerability Management", a: "How consistent and timely are your scanning and patch cycles across environments?", type: 'rating', options: ['1','2','3','4','5'], response: '' },
-                    { q: "Cloud Security", a: "How mature are your cloud security controls (CSPM, IAM hygiene, workload protection)?", type: 'rating', options: ['1','2','3','4','5'], response: '' },
-                    { q: "DevSecOps", a: "How well are security practices integrated into your CI/CD pipelines (SAST/DAST/Secrets/SDLC)?", type: 'rating', options: ['1','2','3','4','5'], response: '' },
-                    { q: "Data Governance", a: "How effective are your data quality, lineage, and stewardship processes?", type: 'rating', options: ['1','2','3','4','5'], response: '' },
-                    { q: "Business Continuity & DR", a: "How mature are your continuity planning and recovery exercises?", type: 'rating', options: ['1','2','3','4','5'], response: '' },
-                    { q: "Asset Management", a: "How accurate and complete is your inventory of hardware, software, and cloud assets?", type: 'rating', options: ['1','2','3','4','5'], response: '' },
-                ]
-            },
-            {
-                id: 'engagement',
-                title: 'Engagement & Commercials',
-                subtitle: 'The "Agreement"',
-                layer: 'Scoping & Agreement',
-                description: "Clarifying the practical aspects of the engagement for a successful partnership.",
-                questions: [
-                    { q: "What is the primary driver for this architecture engagement?", a: "Understanding the primary motivation helps tailor the engagement's focus.", type: 'multiple-choice', options: ['Regulatory Audit / Compliance', 'Digital Transformation Initiative', 'Post-Incident Response', 'Board-Level Directive', 'Proactive Improvement'], response: '' },
-                    { q: "How ready is your organization's culture and processes to support a significant architectural change?", a: "This helps gauge the organization's readiness and capacity for change.", type: 'multiple-choice', options: ['Low - Significant resistance to change expected', 'Moderate - Some key enablers are in place', 'High - The organization is agile and ready for change'], response: '' },
-                    { q: "What is the preferred commercial model for this engagement?", a: "This opens the conversation about the financial structure of the agreement.", type: 'multiple-choice', options: ['Fixed Price', 'Time & Materials', 'Retainer-based'], response: '' },
-                    { q: "Estimated budget range for this engagement?", a: "Budget informs scope, phasing, and resourcing.", type: 'multiple-choice', options: ['< $50k', '$50k–$150k', '$150k–$500k', '>$500k', 'Undisclosed'], response: '' },
-                    { q: "Timeline urgency and target go-live?", a: "Urgency impacts staffing and governance cadence.", type: 'open', response: '' },
-                    { q: "Internal resource availability (SMEs, PMO, Security, Engineering)?", a: "Availability determines feasible pace and working model.", type: 'multiple-choice', options: ['Dedicated core team available', 'Partial allocation', 'Minimal availability'], response: '' },
-                ]
-            },
-            {
-                id: 'estimation',
-                title: 'Cost & Timeline Estimation',
-                subtitle: 'The "Effort"',
-                layer: 'Admin: Project Scoping',
-                description: "This section gathers information to provide a preliminary estimate for an enterprise architecture program. (Admin access required)",
-                adminOnly: true,
-                questions: [
-                    { q: "What is the total number of business units and IT systems involved?", a: "Complexity is a key driver of effort.", type: 'open', response: '' },
-                    { q: "How many internal and external stakeholders are expected to participate?", a: "High stakeholder counts increase coordination effort.", type: 'open', response: '' },
-                    { q: "Approximately how many applications/services are in scope?", a: "Application count drives discovery and design throughput.", type: 'open', response: '' },
-                    { q: "How many cloud accounts/subscriptions and on-prem environments are in scope?", a: "Environment count affects integration and governance.", type: 'open', response: '' },
-                    { q: "Which compliance regimes must be addressed in the engagement?", a: "Compliance scope influences controls and evidence.", type: 'multiple-choice', options: ['ISO 27001', 'SOC 2', 'PCI', 'HIPAA', 'GDPR', 'Other'], response: '' },
-                    { q: "List known dependencies, constraints, or deadlines we must consider.", a: "Surfacing constraints early prevents rework.", type: 'open', response: '' },
-                ]
-            }
+            { id: 'contextual', title: 'Business Context', questions: [
+                { q: "Primary business objectives for the next 1-3 years?", a: "Defines the mission the architecture must support.", type: 'open', response: '' },
+                { q: "Most critical business processes for success?", a: "Helps prioritize protection efforts.", type: 'open', response: '' },
+                { q: "Organizational tolerance for risk (financial, reputational, operational)?", a: "Directly influences security investment.", type: 'multiple-choice', options: ['Very Low (Risk Averse)', 'Low', 'Moderate', 'High', 'Very High (Risk Seeking)'], response: '' },
+                { q: "Key regulatory or contractual requirements?", a: "Shapes design constraints and controls.", type: 'multiple-choice', options: ['None', 'Industry (e.g., HIPAA, PCI)', 'Regional Privacy (e.g., GDPR)', 'Multiple/Complex'], response: '' },
+            ]},
+            { id: 'conceptual', title: 'Strategy & Concepts', questions: [
+                { q: "Primary motivation for your security program?", a: "Reveals the core philosophy.", type: 'multiple-choice', options: ['Compliance-Driven', 'Risk-Driven', 'Threat-Driven', 'Business-Enablement'], response: '' },
+                { q: "How is security integrated into new projects?", a: "Is security 'built-in' or 'bolted-on'?", type: 'multiple-choice', options: ['From Concept/Planning', 'During Design/Dev', 'Pre-Deployment Testing', 'Post-Deployment'], response: '' },
+                { q: "Are there documented architecture principles guiding decisions?", a: "Enables consistent trade-offs.", type: 'multiple-choice', options: ['Yes, current & enforced', 'Yes, but outdated', 'Informal only', 'No'], response: '' },
+            ]},
+            { id: 'logical', title: 'Logical Design', questions: [
+                { q: "High-level approach to Identity and Access Management?", a: "The model for ensuring right people have right access.", type: 'multiple-choice', options: ['Centralized Directory', 'Federated (Partners)', 'Decentralized/SSI', 'Hybrid'], response: '' },
+                { q: "How do you logically segment networks and applications?", a: "Effective segmentation contains threats.", type: 'multiple-choice', options: ['None', 'Basic Zones (DMZ)', 'Micro-segmentation', 'Zero-Trust Principles'], response: '' },
+                { q: "Is a data classification scheme applied to drive controls?", a: "Must drive encryption, access, and monitoring.", type: 'multiple-choice', options: ['Yes, organization-wide', 'Partially/By function', 'Informal', 'No'], response: '' },
+            ]},
+            { id: 'physical', title: 'Physical Implementation', questions: [
+                { q: "Where are critical applications primarily hosted?", a: "Location is key to applying correct protections.", type: 'multiple-choice', options: ['On-Premise', 'Single Public Cloud', 'Hybrid Cloud', 'Multi-Cloud'], response: '' },
+                { q: "How well are security tools integrated to work together?", a: "Integration enables correlation and automated response.", type: 'multiple-choice', options: ['Siloed', 'Some point-to-point', 'Central Platform (SIEM)', 'Highly Automated'], response: '' },
+            ]},
+            { id: 'service', title: 'Operations & Governance', questions: [
+                { q: "How does your organization monitor and respond to threats?", a: "Assesses core detection and response capabilities.", type: 'multiple-choice', options: ['Ad-hoc', 'In-house (Business Hours)', 'In-house 24/7', 'Managed Service (MSSP)'], response: '' },
+                { q: "How often are backup and disaster recovery plans tested?", a: "Testing ensures resilient recovery.", type: 'multiple-choice', options: ['Quarterly+', 'Semi-annually', 'Annually', 'Rarely/Never'], response: '' },
+                { q: "Is there a formal change management process with security review?", a: "Change control reduces operational risk.", type: 'multiple-choice', options: ['Yes, formal CAB gate', 'Yes, but informal', 'No'], response: '' },
+            ]},
+            { id: 'capability', title: 'Capability Maturity', questions: [
+                { q: "Security Governance", a: "Strategy, policies, management systems.", type: 'rating', options: [1,2,3,4,5], response: '' },
+                { q: "Risk Management", a: "Identifying, assessing, mitigating risks.", type: 'rating', options: [1,2,3,4,5], response: '' },
+                { q: "Identity & Access", a: "Managing who has access to what.", type: 'rating', options: [1,2,3,4,5], response: '' },
+                { q: "Data Security", a: "Classification, encryption, DLP.", type: 'rating', options: [1,2,3,4,5], response: '' },
+                { q: "Incident Response", a: "Detecting, responding, recovering.", type: 'rating', options: [1,2,3,4,5], response: '' },
+                { q: "Cloud Security", a: "CSPM, IAM hygiene, workload protection.", type: 'rating', options: [1,2,3,4,5], response: '' },
+                { q: "Vulnerability Mgmt", a: "Scanning and patch cycle timeliness.", type: 'rating', options: [1,2,3,4,5], response: '' },
+                { q: "Asset Management", a: "Inventory of hardware/software/cloud assets.", type: 'rating', options: [1,2,3,4,5], response: '' },
+            ]}
         ];
+        
+        let currentSectionId = null;
+        let maturityChart = null;
+        const appContainer = document.getElementById('assessment-app');
 
-        function navigateToSection(sectionId) {
-            document.querySelectorAll('.sabsa-layer').forEach(nav => nav.classList.remove('active'));
-            const navItem = document.querySelector(`.sabsa-layer[data-id="${sectionId}"]`);
-            if (navItem) {
-                navItem.classList.add('active');
-            }
-            
-            document.querySelectorAll('.content-section').forEach(content => content.classList.remove('active'));
-            const contentSection = document.getElementById(`content-${sectionId}`);
-            if (contentSection) {
-                contentSection.classList.add('active');
+        // --- 2. LOCAL STORAGE ---
+        function saveProgress() {
+            if (!appContainer) return;
+            try {
+                const progress = {
+                    data: assessmentData,
+                    currentSectionId: currentSectionId
+                };
+                localStorage.setItem('soltech_assessment_progress', JSON.stringify(progress));
+            } catch (e) {
+                console.error("Could not save progress to localStorage.", e);
             }
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const navContainer = document.getElementById('sabsa-nav');
-            const contentContainer = document.getElementById('content-display');
-            const loginScreen = document.getElementById('login-screen');
-            const mainContent = document.getElementById('main-content');
-            const loginForm = document.getElementById('loginForm');
-            const guestLoginBtn = document.getElementById('guestLoginBtn');
-            const rememberMeCheckbox = document.getElementById('rememberMe');
-            const togglePasswordBtn = document.getElementById('togglePassword');
-            const usernameInput = document.getElementById('username');
-            const passwordInput = document.getElementById('password');
-            const signOutBtn = document.getElementById('signOutBtn');
-
-            // Prefill username if remembered
-            const rememberFlag = localStorage.getItem('st_remember') === 'true';
-            if (rememberFlag && usernameInput) {
-                usernameInput.value = localStorage.getItem('st_username') || '';
-                if (rememberMeCheckbox) rememberMeCheckbox.checked = true;
-            }
-
-            // Toggle password visibility
-            togglePasswordBtn?.addEventListener('click', () => {
-                const newType = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-                passwordInput.setAttribute('type', newType);
-                const pressed = newType === 'text';
-                togglePasswordBtn.setAttribute('aria-pressed', String(pressed));
-                togglePasswordBtn.setAttribute('aria-label', pressed ? 'Hide password' : 'Show password');
-            });
-
-            loginForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const username = e.target.username.value;
-                const password = e.target.password.value;
-
-                if (rememberMeCheckbox?.checked) {
-                    localStorage.setItem('st_remember', 'true');
-                    localStorage.setItem('st_username', username);
-                } else {
-                    localStorage.removeItem('st_remember');
-                    localStorage.removeItem('st_username');
-                }
-
-                if (username === 'admin' && password === 'password') {
-                    isAdmin = true;
-                    initializeApp();
-                } else {
-                    document.getElementById('loginError').classList.remove('hidden');
-                }
-            });
-
-            guestLoginBtn.addEventListener('click', () => {
-                isAdmin = false;
-                initializeApp();
-            });
-
-            // Sign out clears local storage flag and redirects to logout page
-            signOutBtn?.addEventListener('click', () => {
-                try {
-                    localStorage.removeItem('st_cookie_consent');
-                    localStorage.removeItem('st_remember');
-                    localStorage.removeItem('st_username');
-                    sessionStorage.clear();
-                } catch(_) {}
-                window.location.href = '/logout.html';
-            });
-
-            function initializeApp() {
-                mainContent.classList.remove('hidden');
-                loginScreen.remove();
-
-                navContainer.innerHTML = '';
-                contentContainer.innerHTML = '';
-                
-                const visibleSections = assessmentData.filter(section => !section.adminOnly || isAdmin);
-
-                visibleSections.forEach((section, index) => {
-                    const navItem = document.createElement('div');
-                    navItem.className = 'sabsa-layer bg-white border-2 border-gray-200 p-4 rounded-lg shadow-sm';
-                    navItem.dataset.id = section.id;
-                    navItem.innerHTML = `
-                        <div class="flex items-center justify-between">
-                            <h3 class="text-lg font-bold text-indigo-700">${section.title}</h3>
-                            <span class="text-xs font-semibold text-gray-500">${section.subtitle}</span>
-                        </div>
-                        <p class="text-sm text-gray-600 mt-1">${section.layer}</p>
-                    `;
-                    navContainer.appendChild(navItem);
-
-                    const contentSection = document.createElement('div');
-                    contentSection.id = `content-${section.id}`;
-                    contentSection.className = 'content-section';
-                    
-                    let questionsHtml = section.questions.map((item, qIndex) => renderQuestion(item, section.id, qIndex)).join('');
-                    
-                    const nextSectionId = index < visibleSections.length - 1 ? visibleSections[index + 1].id : null;
-                    const nextButtonHtml = nextSectionId ? `<button onclick="navigateToSection('${nextSectionId}')" class="bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-lg hover:bg-gray-300 transition-colors">Go to Next Section</button>` : '';
-
-                    contentSection.innerHTML = `
-                        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-3 tracking-tight">${section.title}</h2>
-                        <p class="text-gray-600 mb-8 max-w-4xl">${section.description}</p>
-                        <div class="space-y-4">
-                            ${questionsHtml}
-                        </div>
-                        <div class="mt-8 pt-6 border-t flex justify-between items-center">
-                            <button onclick="document.getElementById('generateReportBtn').click()" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg shadow-md hover:bg-indigo-700">Generate Full Report</button>
-                            ${nextButtonHtml}
-                        </div>
-                    `;
-                    contentContainer.appendChild(contentSection);
-                });
-
-                const navItems = document.querySelectorAll('.sabsa-layer');
-                navItems.forEach(item => {
-                    item.addEventListener('click', () => navigateToSection(item.dataset.id));
-                });
-
-                if (navItems.length > 0) {
-                    navItems[0].click();
-                }
-            }
-
-            function renderQuestion(item, sectionId, index) {
-                let inputHtml = '';
-                const questionId = `q-${sectionId}-${index}`;
-                
-                if (item.sub_questions) {
-                    inputHtml += `<div class="mt-4 space-y-4 pl-4 border-l-2 border-gray-200">`;
-                    item.sub_questions.forEach((sub, sub_index) => {
-                        const subQuestionId = `${questionId}-${sub_index}`;
-                        inputHtml += `<div><p class="font-medium text-gray-700">${sub.q}</p>`;
-                        inputHtml += `<div class="mt-2 flex items-center justify-between px-2 max-w-sm">
-                            <span class="text-sm text-gray-500">Ad-Hoc</span>
-                            <div class="flex items-center space-x-4">${sub.options.map(opt => `
-                                <label class="flex flex-col items-center cursor-pointer">
-                                    <input type="radio" name="${subQuestionId}" value="${opt}" data-section-id="${sectionId}" data-question-index="${index}" data-sub-question-index="${sub_index}" class="h-5 w-5 text-indigo-600 border-gray-300 focus:ring-indigo-500" ${sub.response === opt ? 'checked' : ''}>
-                                    <span class="mt-1 text-xs font-bold">${opt}</span>
-                                </label>
-                            `).join('')}</div>
-                            <span class="text-sm text-gray-500">Optimized</span>
-                         </div></div>`;
-                    });
-                    inputHtml += `</div>`;
-                } else {
-                    switch (item.type) {
-                        case 'open':
-                            inputHtml = `<textarea id="${questionId}" data-section-id="${sectionId}" data-question-index="${index}" class="mt-2 w-full p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" rows="4" placeholder="Your detailed answer...">${item.response}</textarea>`;
-                            break;
-                        case 'multiple-choice':
-                            inputHtml = `<div class="mt-2 space-y-2">${item.options.map((opt, optIndex) => `
-                                <label class="flex items-center p-2 rounded-md hover:bg-gray-100 cursor-pointer">
-                                    <input type="radio" name="${questionId}" value="${opt}" data-section-id="${sectionId}" data-question-index="${index}" class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500" ${item.response === opt ? 'checked' : ''}>
-                                    <span class="ml-3 text-gray-700">${opt}</span>
-                                </label>
-                            `).join('')}</div>`;
-                            break;
-                        case 'rating':
-                             inputHtml = `<div class="mt-3 flex items-center justify-between px-2 max-w-sm">
-                                <span class="text-sm text-gray-500">Ad-Hoc</span>
-                                <div class="flex items-center space-x-4">${item.options.map(opt => `
-                                    <label class="flex flex-col items-center cursor-pointer">
-                                        <input type="radio" name="${questionId}" value="${opt}" data-section-id="${sectionId}" data-question-index="${index}" class="h-5 w-5 text-indigo-600 border-gray-300 focus:ring-indigo-500" ${item.response === opt ? 'checked' : ''}>
-                                        <span class="mt-1 text-xs font-bold">${opt}</span>
-                                    </label>
-                                `).join('')}</div>
-                                <span class="text-sm text-gray-500">Optimized</span>
-                             </div>`;
-                            break;
+        function loadProgress() {
+            if (!appContainer) return;
+            try {
+                const savedProgress = localStorage.getItem('soltech_assessment_progress');
+                if (savedProgress) {
+                    const progress = JSON.parse(savedProgress);
+                    if (progress.data && progress.data.length === assessmentData.length) {
+                        progress.data.forEach((section, i) => {
+                            assessmentData[i].questions.forEach((q, j) => {
+                                q.response = section.questions[j].response || '';
+                            });
+                        });
+                        currentSectionId = progress.currentSectionId;
                     }
                 }
+            } catch (e) {
+                console.error("Could not load progress from localStorage.", e);
+                localStorage.removeItem('soltech_assessment_progress');
+            }
+        }
 
-                return `
-                    <div class="question-card border-b border-gray-200 py-5">
-                        <p class="font-semibold text-gray-800 mb-1">${item.q}</p>
-                        <div class="pl-4 border-l-2 border-indigo-100">
-                            <p class="text-sm text-gray-500 italic mb-2">${item.a}</p>
-                            ${inputHtml}
-                        </div>
+        // --- 3. RENDERING LOGIC ---
+        function renderApp() {
+            if (!appContainer) return;
+            if (!currentSectionId) {
+                currentSectionId = assessmentData[0].id;
+            }
+            appContainer.innerHTML = `
+                <div class="bg-white p-6 md:p-8 rounded-2xl shadow-xl border border-slate-200/80 mb-8">
+                    <div id="sabsa-nav" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4">
+                        ${assessmentData.map(section => renderNav(section)).join('')}
                     </div>
-                `;
+                </div>
+                <div id="content-display" class="bg-white p-6 md:p-8 rounded-2xl shadow-xl border border-slate-200/80 min-h-[20rem]">
+                    ${renderContentSection(assessmentData.find(s => s.id === currentSectionId))}
+                </div>
+                <div class="mt-8 text-center" id="main-report-button-container">
+                    <button id="generateReportBtn" class="btn-primary">Generate My Report</button>
+                </div>
+            `;
+            addEventListeners();
+        }
+
+        function renderNav(section) {
+            const isCompleted = section.questions.every(q => q.response);
+            return `
+                <div class="sabsa-layer text-center p-3 rounded-lg ${section.id === currentSectionId ? 'active' : ''}" data-id="${section.id}">
+                    <h3 class="text-sm font-bold">${section.title}</h3>
+                    ${isCompleted ? '<span class="text-xs text-green-600 font-semibold">Completed</span>' : '<span class="text-xs text-slate-400">Pending</span>'}
+                </div>
+            `;
+        }
+        
+        function renderContentSection(section) {
+            const sectionIndex = assessmentData.findIndex(s => s.id === section.id);
+            const prevSectionId = sectionIndex > 0 ? assessmentData[sectionIndex - 1].id : null;
+            const nextSectionId = sectionIndex < assessmentData.length - 1 ? assessmentData[sectionIndex + 1].id : null;
+
+            return `
+                <div class="content-section active" id="content-${section.id}">
+                    <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-6 tracking-tight">${section.title}</h2>
+                    <div class="space-y-6">${section.questions.map((q, i) => renderQuestion(q, section.id, i)).join('')}</div>
+                    <div class="mt-10 pt-6 border-t border-slate-200 flex justify-between items-center">
+                        ${prevSectionId ? `<button data-nav-id="${prevSectionId}" class="nav-btn bg-slate-200 text-slate-800 font-bold py-2 px-6 rounded-full hover:bg-slate-300">Previous</button>` : '<div></div>'}
+                        ${nextSectionId ? `<button data-nav-id="${nextSectionId}" class="nav-btn bg-sky-700 text-white font-bold py-2 px-6 rounded-full hover:bg-sky-600">Next</button>` : '<div></div>'}
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderQuestion(item, sectionId, index) {
+            const questionId = `q-${sectionId}-${index}`;
+            let inputHtml = '';
+            switch (item.type) {
+                case 'open':
+                    inputHtml = `<textarea id="${questionId}" data-section-id="${sectionId}" data-question-index="${index}" class="mt-2 w-full p-3 border border-slate-300 rounded-md focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition" rows="3" placeholder="Your detailed answer...">${item.response}</textarea>`;
+                    break;
+                case 'multiple-choice':
+                    inputHtml = `<div class="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-2">${item.options.map(opt => `
+                        <label class="flex items-center p-3 rounded-md border border-slate-200 hover:bg-sky-50 has-[:checked]:bg-sky-100 has-[:checked]:border-sky-600 cursor-pointer transition-colors">
+                            <input type="radio" name="${questionId}" value="${opt}" data-section-id="${sectionId}" data-question-index="${index}" class="h-4 w-4 text-sky-600 border-slate-300 focus:ring-sky-500" ${item.response === opt ? 'checked' : ''}>
+                            <span class="ml-3 font-medium text-slate-700">${opt}</span>
+                        </label>`).join('')}</div>`;
+                    break;
+                case 'rating':
+                     inputHtml = `<div class="mt-3 flex items-center justify-start sm:justify-center gap-2 sm:gap-4 p-2 rounded-lg bg-slate-50 border">
+                        <span class="text-sm text-slate-500 hidden sm:block">Low</span>
+                        ${item.options.map(opt => `
+                            <label class="flex flex-col items-center cursor-pointer p-2 rounded-md hover:bg-slate-200 has-[:checked]:bg-sky-200">
+                                <span class="text-lg font-bold text-slate-700">${opt}</span>
+                                <input type="radio" name="${questionId}" value="${opt}" data-section-id="${sectionId}" data-question-index="${index}" class="h-5 w-5 text-sky-600 border-slate-300 focus:ring-sky-500 mt-1" ${item.response == opt ? 'checked' : ''}>
+                            </label>`).join('')}
+                        <span class="text-sm text-slate-500 hidden sm:block">High</span>
+                     </div>`;
+                    break;
             }
+            return `
+                <div class="question-card">
+                    <label for="${questionId}" class="font-semibold text-slate-800">${item.q}</label>
+                    <p class="text-sm text-slate-500 mb-2">${item.a}</p>
+                    ${inputHtml}
+                </div>`;
+        }
 
-            contentContainer.addEventListener('input', (e) => {
-                if (e.target.tagName === 'TEXTAREA') {
-                    const { sectionId, questionIndex } = e.target.dataset;
-                    assessmentData.find(s => s.id === sectionId).questions[questionIndex].response = e.target.value;
-                }
+        // --- 4. EVENT HANDLING ---
+        function addEventListeners() {
+            document.querySelectorAll('.sabsa-layer').forEach(nav => {
+                nav.addEventListener('click', (e) => navigateToSection(e.currentTarget.dataset.id));
             });
-
-            contentContainer.addEventListener('change', (e) => {
-                if (e.target.type === 'radio') {
-                    const { sectionId, questionIndex, subQuestionIndex } = e.target.dataset;
-                    if (subQuestionIndex !== undefined) {
-                        assessmentData.find(s => s.id === sectionId).questions[questionIndex].sub_questions[subQuestionIndex].response = e.target.value;
-                    } else {
-                        assessmentData.find(s => s.id === sectionId).questions[questionIndex].response = e.target.value;
-                    }
-                }
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => navigateToSection(e.currentTarget.dataset.navId));
             });
+            const contentDisplay = document.getElementById('content-display');
+            contentDisplay.addEventListener('input', handleInputChange);
+            contentDisplay.addEventListener('change', handleInputChange);
+            document.getElementById('generateReportBtn').addEventListener('click', generateReport);
+        }
 
-            // Report Generation Logic
-            const reportModal = document.getElementById('reportModal');
-            const generateReportBtn = document.getElementById('generateReportBtn');
-            const closeReportBtn = document.getElementById('closeReportBtn');
-            const printReportBtn = document.getElementById('printReportBtn');
+        function handleInputChange(e) {
+            const target = e.target;
+            if (target.dataset.sectionId && target.dataset.questionIndex !== undefined) {
+                const { sectionId, questionIndex } = target.dataset;
+                assessmentData.find(s => s.id === sectionId).questions[questionIndex].response = target.value;
+                saveProgress();
+                document.getElementById('sabsa-nav').innerHTML = assessmentData.map(section => renderNav(section)).join('');
+                document.querySelectorAll('.sabsa-layer').forEach(nav => {
+                    nav.addEventListener('click', (e) => navigateToSection(e.currentTarget.dataset.id));
+                });
+            }
+        }
+        
+        function navigateToSection(id) {
+            currentSectionId = id;
+            saveProgress();
+            renderApp();
+        }
+
+        // --- 5. REPORT GENERATION ---
+        function generateReport() {
             const infographicContent = document.getElementById('infographic-content');
             const detailsContent = document.getElementById('details-content');
+            const capabilitySection = assessmentData.find(s => s.id === 'capability');
+            const maturityScores = capabilitySection.questions.map(q => q.response ? parseInt(q.response, 10) : 0);
+            const maturityLabels = capabilitySection.questions.map(q => q.q);
+            const validScores = maturityScores.filter(s => s > 0);
+            const averageScore = validScores.length > 0 ? (validScores.reduce((a, b) => a + b, 0) / validScores.length) : 0;
+            let maturity = getMaturityLevel(averageScore);
 
-            generateReportBtn.addEventListener('click', () => {
-                // Generate Detailed Report
-                let detailsHtml = `<h1 class=\"text-3xl md:text-4xl font-bold text-center mb-8 tracking-tight\">Enterprise Architecture Assessment Report</h1>`;
-                const visibleSections = assessmentData.filter(section => !section.adminOnly || isAdmin);
-                visibleSections.forEach(section => {
-                    detailsHtml += `<div class="mb-8 break-after-page">
-                                     <h2 class="text-2xl font-bold border-b-2 border-sky-500 pb-2 mb-4 tracking-tight">${section.title}</h2>`;
-                    section.questions.forEach((q, i) => {
-                        let response = q.response || 'No response provided.';
-                        if(q.sub_questions) {
-                            response = q.sub_questions.map(sq => `<p class="font-medium text-sm mt-2">${sq.q}: <span class="font-normal">${sq.response || 'N/A'}</span></p>`).join('');
-                        }
-                        detailsHtml += `<div class="mb-4">
-                                         <p class="font-semibold">${i + 1}. ${q.q}</p>
-                                         <div class="pl-4 text-gray-700 bg-gray-50 p-2 rounded-md mt-1">${response}</div>
-                                       </div>`;
-                    });
-                    detailsHtml += `</div>`;
-                });
-                detailsContent.innerHTML = detailsHtml;
-
-                // Generate Infographic
-                const capabilitySection = assessmentData.find(s => s.id === 'capability');
-                const maturityScores = capabilitySection.questions.map(q => q.response ? parseInt(q.response, 10) : 0);
-                const maturityLabels = capabilitySection.questions.map(q => q.q.split('(')[0].trim());
-                const averageScore = maturityScores.filter(s => s > 0).length > 0 ? (maturityScores.reduce((a, b) => a + b, 0) / maturityScores.filter(s => s > 0).length) : 0;
-                
-                let maturityLevel = 'Initial';
-                let maturityColor = 'text-red-600';
-                if (averageScore >= 4.5) { maturityLevel = 'Optimizing'; maturityColor = 'text-green-600';}
-                else if (averageScore >= 3.5) { maturityLevel = 'Quantitatively Managed'; maturityColor = 'text-blue-600'; }
-                else if (averageScore >= 2.5) { maturityLevel = 'Managed'; maturityColor = 'text-yellow-600'; }
-                else if (averageScore >= 1.5) { maturityLevel = 'Defined'; maturityColor = 'text-orange-600'; }
-
-                const togafGovernance = assessmentData.find(s => s.id === 'togaf').questions[1].response || 'N/A';
-                const primaryDriver = assessmentData.find(s => s.id === 'engagement').questions[0].response || 'N/A';
-
-                infographicContent.innerHTML = `
-                    <div class="bg-slate-900 text-white p-8 rounded-lg">
-                        <h1 class="text-3xl md:text-4xl font-bold text-center mb-2 tracking-tight">Architecture Assessment Summary</h1>
-                        <p class="text-center text-slate-400 mb-8">A visual overview of the organization's security capabilities and EA posture.</p>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                            <div class="bg-slate-800 p-4 rounded-lg text-center">
-                                <p class="text-sm text-slate-400">Overall Security Maturity</p>
-                                <p class="text-4xl font-bold ${maturityColor}">${averageScore.toFixed(2)}</p>
-                                <p class="text-sm font-semibold ${maturityColor}">${maturityLevel}</p>
-                            </div>
-                            <div class="bg-slate-800 p-4 rounded-lg text-center">
-                                <p class="text-sm text-slate-400">EA Governance</p>
-                                <p class="text-2xl font-bold text-sky-500 mt-2 truncate" title="${togafGovernance}">${togafGovernance}</p>
-                            </div>
-                            <div class="bg-slate-800 p-4 rounded-lg text-center">
-                                <p class="text-sm text-slate-400">Primary Engagement Driver</p>
-                                <p class="text-2xl font-bold text-sky-500 mt-2 truncate" title="${primaryDriver}">${primaryDriver}</p>
-                            </div>
+            infographicContent.innerHTML = `
+                <div class="bg-slate-50 p-6 md:p-8">
+                    <h2 class="text-3xl font-bold text-slate-800 text-center">Your Architecture Dashboard</h2>
+                    <p class="text-center text-slate-500 mb-8">An executive summary of your assessment results.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <div class="bg-white p-6 rounded-xl border text-center">
+                            <p class="text-sm font-semibold text-slate-500">Overall Maturity Score</p>
+                            <p class="text-5xl font-extrabold ${maturity.color}">${averageScore.toFixed(1)}</p>
+                            <p class="text-lg font-semibold ${maturity.color}">${maturity.level}</p>
                         </div>
-
-                        <div class="bg-slate-800 p-6 rounded-lg">
-                             <h2 class="text-xl md:text-2xl font-bold text-center text-slate-300 mb-4 tracking-tight">Capability Maturity Radar</h2>
-                             <div class="chart-container" style="position: relative; height:60vh; width:100%">
-                                <canvas id="maturityChart"></canvas>
-                             </div>
+                        <div class="bg-white p-6 rounded-xl border md:col-span-2">
+                            <h3 class="text-sm font-semibold text-slate-500 mb-2">Key Insight</h3>
+                            <p class="text-lg text-slate-700">${maturity.insight}</p>
                         </div>
                     </div>
-                `;
-                
-                if(maturityChart) {
-                    maturityChart.destroy();
-                }
-                const ctx = document.getElementById('maturityChart').getContext('2d');
-                maturityChart = new Chart(ctx, {
-                    type: 'radar',
-                    data: {
-                        labels: maturityLabels,
-                        datasets: [{
-                            label: 'Maturity Score',
-                            data: maturityScores,
-                            backgroundColor: 'rgba(14, 165, 233, 0.2)',
-                            borderColor: 'rgba(14, 165, 233, 1)',
-                            pointBackgroundColor: 'rgba(14, 165, 233, 1)',
-                            pointBorderColor: '#fff',
-                            pointHoverBackgroundColor: '#fff',
-                            pointHoverBorderColor: 'rgba(14, 165, 233, 1)'
-                        }]
-                    },
-                    options: {
-                        maintainAspectRatio: false,
-                        scales: {
-                            r: {
-                                beginAtZero: true,
-                                max: 5,
-                                stepSize: 1,
-                                angleLines: { color: 'rgba(255, 255, 255, 0.2)' },
-                                grid: { color: 'rgba(255, 255, 255, 0.2)' },
-                                pointLabels: { 
-                                    color: '#cbd5e1',
-                                    font: {
-                                        size: 11
-                                    }
-                                },
-                                ticks: {
-                                    color: '#fff',
-                                    backdropColor: 'rgba(0, 0, 0, 0.5)',
-                                    font: {
-                                        size: 12
-                                    }
-                                }
-                            }
-                        },
-                        plugins: {
-                            legend: {
-                                display: false
-                            }
-                        }
-                    }
-                });
-
-
-                reportModal.classList.remove('hidden');
-                document.querySelector('.report-tab[data-tab="infographic"]').click();
-                closeReportBtn.focus();
-            });
-
-            closeReportBtn.addEventListener('click', () => {
-                reportModal.classList.add('hidden');
-            });
+                    <div class="bg-white p-6 rounded-xl border">
+                         <h3 class="text-lg font-bold text-center text-slate-800 mb-4">Capability Maturity Breakdown</h3>
+                         <div class="chart-container" style="position: relative; height:50vh; width:100%"><canvas id="maturityChart"></canvas></div>
+                    </div>
+                </div>`;
             
-            printReportBtn.addEventListener('click', () => {
-                window.print();
+            let detailsHtml = `<h1 class="text-3xl font-bold text-center mb-8">Detailed Assessment Findings</h1>`;
+            assessmentData.forEach(section => {
+                if (section.id === 'capability') return;
+                detailsHtml += `<div class="mb-8 break-inside-avoid"><h2 class="text-2xl font-bold border-b-2 border-sky-600 pb-2 mb-4">${section.title}</h2>`;
+                section.questions.forEach((q, i) => {
+                    const response = q.response || 'No response provided.';
+                    detailsHtml += `<div class="mb-4 break-inside-avoid"><p class="font-semibold">${q.q}</p><div class="pl-4 text-slate-700 bg-slate-100 p-3 rounded-md mt-1 font-medium">${response}</div></div>`;
+                });
+                detailsHtml += `</div>`;
+            });
+            detailsContent.innerHTML = detailsHtml;
+
+            if(maturityChart) maturityChart.destroy();
+            const ctx = document.getElementById('maturityChart').getContext('2d');
+            maturityChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: maturityLabels,
+                    datasets: [{
+                        label: 'Maturity Score', data: maturityScores,
+                        backgroundColor: 'rgba(2, 132, 199, 0.2)',
+                        borderColor: 'rgba(2, 132, 199, 1)',
+                        pointBackgroundColor: 'rgba(2, 132, 199, 1)',
+                        pointBorderColor: '#fff', pointHoverBackgroundColor: '#fff', pointHoverBorderColor: 'rgba(2, 132, 199, 1)'
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    scales: { r: { beginAtZero: true, max: 5, stepSize: 1, angleLines: { color: 'rgba(0,0,0,0.1)' }, grid: { color: 'rgba(0,0,0,0.1)' }, pointLabels: { font: { size: 12 } }, ticks: { display: false } } },
+                    plugins: { legend: { display: false } }
+                }
             });
 
-            // Close on Escape
+            const reportModal = document.getElementById('reportModal');
+            reportModal.classList.remove('hidden');
+            document.querySelector('.report-tab[data-tab="infographic"]').click();
+            document.getElementById('closeReportBtn').focus();
+        }
+        
+        function getMaturityLevel(score) {
+            if (score >= 4.5) return { level: 'Optimizing', color: 'text-green-600', insight: 'Your architecture is a strategic asset, continuously improving and driving business innovation. Focus on maintaining this edge.' };
+            if (score >= 3.5) return { level: 'Managed', color: 'text-sky-600', insight: 'You have a strong, well-managed architecture. The next step is to leverage data to optimize processes and predict future needs.' };
+            if (score >= 2.5) return { level: 'Defined', color: 'text-yellow-600', insight: 'Your processes are standardized, but may lack consistent enforcement. Focus on governance and capability integration.' };
+            if (score >= 1.5) return { level: 'Repeatable', color: 'text-orange-500', insight: 'Pockets of success exist, but practices are often reactive. The key is to formalize and standardize your approach.' };
+            return { level: 'Initial', color: 'text-red-600', insight: 'Architecture is ad-hoc and unpredictable. Establishing basic governance and principles is the critical first step.' };
+        }
+
+        // --- 6. MODAL & COOKIE BANNER LOGIC ---
+        function setupUIListeners() {
+            const reportModal = document.getElementById('reportModal');
+            const closeReportBtn = document.getElementById('closeReportBtn');
+            const printReportBtn = document.getElementById('printReportBtn');
+            
+            closeReportBtn?.addEventListener('click', () => reportModal.classList.add('hidden'));
+            printReportBtn?.addEventListener('click', () => window.print());
             document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && !reportModal.classList.contains('hidden')) {
+                if (e.key === 'Escape' && reportModal && !reportModal.classList.contains('hidden')) {
                     reportModal.classList.add('hidden');
                 }
             });
 
-            // Tab functionality for report modal
             const reportTabs = document.querySelectorAll('.report-tab');
             reportTabs.forEach(tab => {
                 tab.addEventListener('click', () => {
                     const tabName = tab.dataset.tab;
-                    reportTabs.forEach(t => {
-                        t.classList.remove('active');
-                        t.setAttribute('aria-selected', 'false');
-                        t.setAttribute('tabindex', '-1');
-                    });
+                    reportTabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
                     tab.classList.add('active');
                     tab.setAttribute('aria-selected', 'true');
-                    tab.setAttribute('tabindex', '0');
-
-                    document.querySelectorAll('.report-content').forEach(content => {
-                        content.classList.remove('active');
-                    });
+                    document.querySelectorAll('.report-content').forEach(c => c.classList.remove('active'));
                     document.getElementById(`${tabName}-content`).classList.add('active');
                 });
             });
 
-            // Cookie consent logic
             const cookieBanner = document.getElementById('cookie-consent');
             const acceptBtn = document.getElementById('cookie-accept');
-            const declineBtn = document.getElementById('cookie-decline');
-            const consent = localStorage.getItem('st_cookie_consent');
-            if (!consent) {
+            if (cookieBanner && !localStorage.getItem('soltech_cookie_consent')) {
                 cookieBanner.classList.remove('hidden');
             }
-            function setConsent(value) {
-                localStorage.setItem('st_cookie_consent', value);
+            acceptBtn?.addEventListener('click', () => {
+                localStorage.setItem('soltech_cookie_consent', 'true');
                 cookieBanner.classList.add('hidden');
-            }
-            acceptBtn?.addEventListener('click', () => setConsent('accepted'));
-            declineBtn?.addEventListener('click', () => setConsent('declined'));
-
-            // Register service worker for basic offline and performance
-            if ('serviceWorker' in navigator) {
-                window.addEventListener('load', () => {
-                    navigator.serviceWorker.register('/sw.js').catch(() => {});
+            });
+            
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
                 });
             }
-        });
+        }
+
+        // --- 7. APP INITIALIZATION ---
+        const appElement = document.getElementById('assessment-app');
+        if (appElement) {
+            loadProgress();
+            renderApp();
+        }
+        setupUIListeners();
+    });
     </script>
-</body>
-</html>
-sw.js
-const CACHE_NAME = 'soltech-cache-v1';
-const ASSETS = [
-  '/',
-  '/index.html'
-];
-
-self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS))
-  );
-});
-
-self.addEventListener('activate', (event) => {
-  event.waitUntil(
-    caches.keys().then((keys) => Promise.all(keys.filter((k) => k !== CACHE_NAME).map((k) => caches.delete(k))))
-  );
-});
-
-self.addEventListener('fetch', (event) => {
-  const request = event.request;
-  if (request.method !== 'GET') return;
-
-  event.respondWith(
-    caches.match(request).then((cached) => {
-      const fetchPromise = fetch(request)
-        .then((response) => {
-          const copy = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(request, copy)).catch(() => {});
-          return response;
-        })
-        .catch(() => cached);
-      return cached || fetchPromise;
-    })
-  );
-});
-manifest.webmanifest
-{
-  "name": "SolTech Enterprise Architecture Consultancy",
-  "short_name": "SolTech EA",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#4f46e5",
-  "icons": []
-}
-robots.txt
-User-agent: *
-Allow: /
-Sitemap: https://example.com/sitemap.xml
-sitemap.xml
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://example.com/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://example.com/#services</loc>
-  </url>
-  <url>
-    <loc>https://example.com/#frameworks</loc>
-  </url>
-  <url>
-    <loc>https://example.com/#methodology</loc>
-  </url>
-  <url>
-    <loc>https://example.com/#assessment-tool</loc>
-  </url>
-  <url>
-    <loc>https://example.com/#trust-center</loc>
-  </url>
-  <url>
-    <loc>https://example.com/#privacy</loc>
-  </url>
-  <url>
-    <loc>https://example.com/#terms</loc>
-  </url>
-  <url>
-    <loc>https://example.com/use-cases/cloud-security-architecture.html</loc>
-  </url>
-  <url>
-    <loc>https://example.com/subscribe.html</loc>
-  </url>
-</urlset>
-logout.html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Signed out • SolTech</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>body{font-family:'Inter',sans-serif}</style>
-</head>
-<body class="min-h-screen bg-gradient-to-b from-sky-50 via-white to-white text-gray-900">
-  <main class="max-w-2xl mx-auto px-6 py-24 text-center">
-    <div class="mx-auto w-16 h-16 rounded-full bg-sky-100 flex items-center justify-center mb-6">
-      <svg class="w-8 h-8 text-sky-600" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8v8m0-8H5a2 2 0 00-2 2v8a2 2 0 002 2h2"/></svg>
-    </div>
-    <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight">You’re signed out</h1>
-    <p class="mt-3 text-gray-600">We’ve cleared your local session. You can close this tab or return to the site.</p>
-    <div class="mt-8 flex items-center justify-center gap-3">
-      <a href="/index.html" class="inline-flex items-center rounded-lg bg-sky-600 px-4 py-2 font-semibold text-white hover:bg-sky-700">Back to Home</a>
-      <a href="/index.html#assessment-tool" class="inline-flex items-center rounded-lg border border-gray-300 bg-white px-4 py-2 font-semibold text-gray-900 hover:bg-gray-50">Open Assessment</a>
-    </div>
-  </main>
-
-  <script>
-    try {
-      localStorage.removeItem('st_cookie_consent');
-      localStorage.removeItem('st_remember');
-      localStorage.removeItem('st_username');
-      // Clear any future auth flags if added
-      sessionStorage.clear();
-    } catch (_) {}
-  </script>
-</body>
-</html>
-subscribe.html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Subscribe • SolTech</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>body{font-family:'Inter',sans-serif}</style>
-</head>
-<body class="min-h-screen bg-gradient-to-b from-sky-50 via-white to-white text-gray-900">
-  <main class="max-w-3xl mx-auto px-6 py-16">
-    <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight">Subscribe for Full Access</h1>
-    <p class="mt-3 text-gray-600">Unlock detailed enterprise security architecture use cases, reference controls, downloadable diagrams, and estimators.</p>
-
-    <div class="mt-8 grid md:grid-cols-2 gap-6">
-      <div class="bg-white border rounded-2xl p-6 shadow-sm">
-        <h2 class="text-xl font-bold">Monthly</h2>
-        <p class="text-gray-600">Cancel anytime</p>
-        <p class="mt-4 text-3xl font-extrabold">$29</p>
-        <button class="subscribeBtn mt-4 w-full rounded-lg bg-sky-600 px-4 py-2 font-semibold text-white hover:bg-sky-700" data-plan="monthly">Subscribe Monthly</button>
-      </div>
-      <div class="bg-white border rounded-2xl p-6 shadow-sm">
-        <h2 class="text-xl font-bold">Annual</h2>
-        <p class="text-gray-600">2 months free</p>
-        <p class="mt-4 text-3xl font-extrabold">$290</p>
-        <button class="subscribeBtn mt-4 w-full rounded-lg bg-sky-600 px-4 py-2 font-semibold text-white hover:bg-sky-700" data-plan="annual">Subscribe Annually</button>
-      </div>
-    </div>
-
-    <div class="mt-8 bg-white border rounded-2xl p-6 shadow-sm">
-      <h3 class="text-lg font-bold">Payment Methods</h3>
-      <p class="mt-2 text-gray-600">In production, integrate providers like Stripe or PayPal.</p>
-      <div class="mt-4 flex items-center gap-3">
-        <button class="subscribeBtn inline-flex items-center rounded-lg border border-gray-300 bg-white px-4 py-2 font-semibold text-gray-900 hover:bg-gray-50" data-plan="demo">Pay with Card (Demo)</button>
-        <button class="subscribeBtn inline-flex items-center rounded-lg border border-gray-300 bg-white px-4 py-2 font-semibold text-gray-900 hover:bg-gray-50" data-plan="demo">PayPal (Demo)</button>
-      </div>
-    </div>
-
-    <p class="mt-6 text-sm text-gray-500">By subscribing you agree to our <a href="/index.html#terms" class="text-sky-600 hover:text-sky-700">Terms</a> and <a href="/index.html#privacy" class="text-sky-600 hover:text-sky-700">Privacy Policy</a>.</p>
-  </main>
-
-  <script>
-    document.querySelectorAll('.subscribeBtn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        // Placeholder payment success
-        localStorage.setItem('st_subscribed','true');
-        const redirect = new URLSearchParams(location.search).get('redirect') || '/use-cases/cloud-security-architecture.html';
-        location.href = redirect;
-      });
-    });
-  </script>
-</body>
-</html>
-use-cases/cloud-security-architecture.html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cloud Security Architecture Use Case • SolTech</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>body{font-family:'Inter',sans-serif}</style>
-</head>
-<body class="min-h-screen bg-gradient-to-b from-sky-50 via-white to-white text-gray-900">
-  <header class="border-b bg-white/80 backdrop-blur">
-    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-      <a href="/index.html" class="flex items-center">
-        <svg class="w-7 h-7 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-        <span class="ml-2 font-bold">SolTech</span>
-      </a>
-      <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="/index.html#services" class="text-gray-600 hover:text-sky-600">Services</a>
-        <a href="/index.html#assessment-tool" class="text-gray-600 hover:text-sky-600">Assessment</a>
-        <a href="/use-cases/cloud-security-architecture.html" class="text-gray-900 font-semibold">Use Cases</a>
-        <a href="/subscribe.html" class="text-white bg-sky-600 px-3 py-1.5 rounded-lg hover:bg-sky-700">Subscribe</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="max-w-7xl mx-auto px-6 py-12">
-    <div class="grid lg:grid-cols-3 gap-10">
-      <article class="lg:col-span-2">
-        <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight">Use Case: Secure Multi-Cloud Retail Platform</h1>
-        <p class="mt-3 text-gray-600">A real-world example of applying SABSA and TOGAF 10 to design and operate a resilient, compliant, and scalable cloud architecture.</p>
-
-        <section class="mt-8 space-y-6">
-          <div class="bg-white rounded-xl border p-6 shadow-sm">
-            <h2 class="text-xl font-bold">Context & Drivers (SABSA Contextual / TOGAF Vision)</h2>
-            <ul class="mt-3 list-disc pl-6 text-gray-700">
-              <li>Rapid e-commerce growth across regions; seasonal spikes</li>
-              <li>PII and payment data subject to GDPR and PCI DSS</li>
-              <li>Board mandate for Zero Trust and accelerated delivery</li>
-            </ul>
-          </div>
-          <div class="bg-white rounded-xl border p-6 shadow-sm">
-            <h2 class="text-xl font-bold">Concepts & Principles</h2>
-            <ul class="mt-3 list-disc pl-6 text-gray-700">
-              <li>Business Attributes: Availability, Integrity, Privacy, Traceability</li>
-              <li>TOGAF principles for reuse, portability, and data ownership</li>
-              <li>Control objectives mapped to NIST CSF and ISO 27001</li>
-            </ul>
-          </div>
-          <div class="bg-white rounded-xl border p-6 shadow-sm">
-            <h2 class="text-xl font-bold">Logical Architecture Highlights</h2>
-            <ul class="mt-3 list-disc pl-6 text-gray-700">
-              <li>Identity federation (OIDC/SAML) + per-app conditional access</li>
-              <li>Segmentation: Internet → WAF → API Gateway → Services → Data</li>
-              <li>Central secrets, KMS-backed encryption, classification-driven controls</li>
-              <li>Supply chain: SCA, SAST/DAST, signed artifacts, policy gating</li>
-            </ul>
-          </div>
-        </section>
-
-        <div id="gated-teaser" class="mt-8">
-          <div class="bg-sky-50 border border-sky-200 rounded-xl p-6">
-            <p class="text-sky-800 font-semibold">You’re viewing a preview.</p>
-            <p class="text-sky-900 mt-2">Subscribe for full access to detailed diagrams, component mappings, reference controls, runbooks, and estimation model.</p>
-            <div class="mt-4 flex gap-3">
-              <a href="/subscribe.html" class="inline-flex items-center rounded-lg bg-sky-600 px-4 py-2 font-semibold text-white hover:bg-sky-700">Subscribe to unlock</a>
-              <button id="demoUnlock" class="inline-flex items-center rounded-lg border border-gray-300 bg-white px-4 py-2 font-semibold text-gray-900 hover:bg-gray-50">Demo unlock</button>
-            </div>
-          </div>
-        </div>
-
-        <section id="gated-content" class="mt-8 hidden">
-          <div class="bg-white rounded-xl border p-6 shadow-sm">
-            <h2 class="text-xl font-bold">Physical & Component Views</h2>
-            <ul class="mt-3 list-disc pl-6 text-gray-700">
-              <li>Cloud providers: AWS + Azure with shared services account/subscription</li>
-              <li>Network: Hub-spoke with private link; WAF+CDN; API Gateway; Service Mesh</li>
-              <li>Data: Regionalized stores; KMS per region; tokenization for PII</li>
-              <li>Observability: Central SIEM/SOAR; cross-account logs; UEBA</li>
-            </ul>
-          </div>
-          <div class="bg-white rounded-xl border p-6 shadow-sm">
-            <h2 class="text-xl font-bold">Operations, Assurance, and Roadmap</h2>
-            <ul class="mt-3 list-disc pl-6 text-gray-700">
-              <li>Controls matrix mapping (ISO 27001 Annex A ↔ NIST CSF ↔ cloud-native)</li>
-              <li>Runbooks for incident response, DR drills, key rotations, break-glass</li>
-              <li>ADM-aligned increments: MVP → Scale → Optimize (with metrics)</li>
-            </ul>
-          </div>
-        </section>
-      </article>
-
-      <aside>
-        <div class="bg-white rounded-xl border p-6 shadow-sm">
-          <h3 class="text-lg font-bold">What you’ll get</h3>
-          <ul class="mt-3 list-disc pl-6 text-gray-700">
-            <li>Downloadable diagrams (SVG/PDF)</li>
-            <li>Controls mapping spreadsheets</li>
-            <li>Threat model and mitigations</li>
-            <li>Cost and timeline estimator</li>
-          </ul>
-          <a href="/subscribe.html" class="mt-4 inline-flex items-center rounded-lg bg-sky-600 px-4 py-2 font-semibold text-white hover:bg-sky-700">Subscribe</a>
-        </div>
-      </aside>
-    </div>
-  </main>
-
-  <script>
-    const gated = document.getElementById('gated-content');
-    const teaser = document.getElementById('gated-teaser');
-    const demoBtn = document.getElementById('demoUnlock');
-
-    function checkAccess(){
-      const hasAccess = localStorage.getItem('st_subscribed') === 'true';
-      if (hasAccess) { gated.classList.remove('hidden'); teaser.classList.add('hidden'); }
-    }
-    checkAccess();
-
-    demoBtn?.addEventListener('click', () => {
-      localStorage.setItem('st_subscribed','true');
-      checkAccess();
-    });
-  </script>
 </body>
 </html>
